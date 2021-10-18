@@ -2,11 +2,11 @@
 
 :information_source: &nbsp;This repo contains questions and exercises on various technical topics, sometimes related to DevOps and SRE :)
 
-:bar_chart: &nbsp;There are currently **1726** questions
+:bar_chart: &nbsp;There are currently **1825** questions
 
 :books: &nbsp;To learn more about DevOps and SRE, check the resources in [devops-resources](https://github.com/bregman-arie/devops-resources) repository
 
-:warning: &nbsp;You can use these for preparing for an interview but most of the questions and exercises don't represent an actual interview. Please read [Q&A](common-qa.md) for more details
+:warning: &nbsp;You can use these for preparing for an interview but most of the questions and exercises don't represent an actual interview. Please read [FAQ page](common-qa.md) for more details
 
 :busts_in_silhouette: &nbsp;[Join](https://www.facebook.com/groups/538897960007080) our [DevOps community](https://www.facebook.com/groups/538897960007080) where we have discussions and share resources on DevOps
 
@@ -396,6 +396,10 @@ Reliability, when used in DevOps context, is the ability of a system to recover 
 
 <details>
 <summary>What "Availability" means? What means are there to track Availability of a service?</summary><br><b>
+</b></details>
+
+<details>
+<summary>Why 100% availability isn't a target? Why most companies or teams set it to be 99%.X?</summary><br><b>
 </b></details>
 
 <details>
@@ -2417,6 +2421,10 @@ Read more [here](https://linuxjourney.com/lesson/dhcp-overview)
 </b></details>
 
 <details>
+<summary>Can you have two DHCP servers in the same network? How it works?</summary><br><b>
+</b></details>
+
+<details>
 <summary>What is SSL tunneling? How does it works?</summary><br><b>
 </b></details>
 
@@ -2931,6 +2939,10 @@ True
 * No more disk space
 * No more inodes
 * No permissions
+</b></details>
+
+<details>
+<summary>A user accidentally executed the following <code>chmod -x $(which chmod)</code>. How to fix it?</summary><br><b>
 </b></details>
 
 #### Linux - Shell Scripting
@@ -3680,7 +3692,7 @@ This is a great article on the topic: https://www.computerhope.com/jargon/f/file
 <summary>Do you have experience with hardening servers? Can you describe the process?</summary><br><b>
 </b></details>
 
-##### Linux Networking
+##### Linux - Networking
 
 <details>
 <summary>How to list all the interfaces?</summary><br><b>
@@ -3834,7 +3846,7 @@ You can specify one or more of the following:
  * <code>nslookup</code>
 </b></details>
 
-##### Linux Packaging
+##### Linux - Packaging
 
 <details>
 <summary>Do you have experience with packaging? (as in building packages) Can you explain how does it works?</summary><br><b>
@@ -4022,6 +4034,26 @@ lsblk
 <summary>True or False? In user space, applications don't have full access to hardware resources</summary><br><b>
 
 True. Only in kernel space they have full access to hardware resources.
+</b></details>
+
+#### Linux - Security
+
+<details>
+<summary>How do you create a private key for a CA (certificate authority)?</summary><br><b>
+
+One way is using openssl this way:
+
+`openssl genrsa -aes256 -out ca-private-key.pem 4096`
+</b></details>
+
+<details>
+<summary>How do you create a public key for a CA (certificate authority)?</summary><br><b>
+
+`openssl req -new -x509 -days 730 -key [private key file name] -sha256 -out ca.pem`
+
+If using the private key from the previous question then the command would be:
+
+`openssl req -new -x509 -days 730 -key ca-private-key.pem -sha256 -out ca.pem`
 </b></details>
 
 #### Linux - Namespaces
@@ -4651,6 +4683,12 @@ Desktop virtualization
 Yes, it's a operating-system-level virtualization, where the kernel is shared and allows to use multiple isolated user-spaces instances.
 </b></details>
 
+<details>
+<summary>How the introduction of virtual machines changed the industry and the way applications were deployed?</summary><br><b>
+
+The introduction of virtual machines allowed companies to deploy multiple business applications on the same hardware while each application is separated from each other in secured way, where each is running on its own separate operating system.
+</b></details>
+
 ## Ansible
 
 ### Ansible Exercises
@@ -4658,7 +4696,9 @@ Yes, it's a operating-system-level virtualization, where the kernel is shared an
 |Name|Topic|Objective & Instructions|Solution|Comments|
 |--------|--------|------|----|----|
 | My First Task | Tasks | [Exercise](exercises/ansible/my_first_task.md) | [Solution](exercises/ansible/solutions/my_first_task.md)
+| Upgrade and Update Task | Tasks | [Exercise](exercises/ansible/update_upgrade_task.md) | [Solution](exercises/ansible/solutions/update_upgrade_task.md)
 | My First Playbook | Playbooks | [Exercise](exercises/ansible/my_first_playbook.md) | [Solution](exercises/ansible/solutions/my_first_playbook.md)
+	
 
 ### Ansible Self Assesment
 
@@ -5618,38 +5658,340 @@ resource "aws_instance" "tf_aws_instance" {
 
 |Name|Topic|Objective & Instructions|Solution|Comments|
 |--------|--------|------|----|----|
-|My First Dockerfile|Dockerfile|[Link](exercises/write_dockerfile_run_container.md)|[Link](exercises/write_dockerfile_run_container.md)
+|Running Containers|Intro|[Exercise](exercises/containers/running_containers.md)|[Solution](exercises/containers/solutions/running_containers.md)
+|Working with Images|Image|[Exercise](exercises/containers/working_with_images.md)|[Solution](exercises/containers/solutions/working_with_images.md)
+|My First Dockerfile|Dockerfile|[Exercise](exercises/write_dockerfile_run_container.md)|[Solution](exercises/write_dockerfile_run_container.md)
 
 ### Containers Self Assesment
 
 <details>
-<summary>What is a Container? What is it used for?</summary><br><b>
+<summary>What is a Container?</summary><br><b>
 
-Containers are a form of operating system virtualization. A single container might be used to run anything from a small microservice or software process to a larger application. Inside a container are all the necessary executables, binary code, libraries, and configuration files, making them easy to ship and run with same expected results on different machines.
+This can be tricky to answer since there are many ways to create a containers:
+
+  - Docker
+  - systemd-nspawn
+  - LXC
+
+If to focus on OCI (Open Container Initiative) based containers, it offers the following [definition](https://github.com/opencontainers/runtime-spec/blob/master/glossary.md#container): "An environment for executing processes with configurable isolation and resource limitations. For example, namespaces, resource limits, and mounts are all part of the container environment."
+</b></details>
+
+<details>
+<summary>Why containers are needed? What is their goal?</summary><br><b>
+
+OCI provides a good [explanation](https://github.com/opencontainers/runtime-spec/blob/master/principles.md#the-5-principles-of-standard-containers): "Define a unit of software delivery called a Standard Container. The goal of a Standard Container is to encapsulate a software component and all its dependencies in a format that is self-describing and portable, so that any compliant runtime can run it without extra dependencies, regardless of the underlying machine and the contents of the container."
 </b></details>
 
 <details>
 <summary>How are containers different from virtual machines (VMs)?</summary><br><b>
 
 The primary difference between containers and VMs is that containers allow you to virtualize
-multiple workloads on the operating system while in the case of VMs the hardware is being virtualized to run multiple machines each with its own OS.
+multiple workloads on a single operating system while in the case of VMs, the hardware is being virtualized to run multiple machines each with its own guest OS.
 You can also think about it as containers are for OS-level virtualization while VMs are for hardware virtualization.
 
-* Containers don't require an entire guest operating system as VMs. Containers share the system's kernel as opposed to VMs. They isolate themselves via the use of namespaces and cgroups
+* Containers don't require an entire guest operating system as VMs. Containers share the system's kernel as opposed to VMs. They isolate themselves via the use of kernel's features such as namespaces and cgroups
 * It usually takes a few seconds to set up a container as opposed to VMs which can take minutes or at least more time than containers as there is an entire OS to boot and initialize as opposed to containers which has share of the underlying OS
 * Virtual machines considered to be more secured than containers
+* VMs portability considered to be limited when compared to containers
+</b></details>
+
+<details>
+<summary>Do we need virtual machines in the edge of containers? Are they still relevant?</summary><br><b>
 </b></details>
 
 <details>
 <summary>In which scenarios would you use containers and in which you would prefer to use VMs?</summary><br><b>
 
 You should choose VMs when:
-  * you need run an application which requires all the resources and functionalities of an OS
-  * you need full isolation and security
+  * You need run an application which requires all the resources and functionalities of an OS
+  * You need full isolation and security
 
 You should choose containers when:
-  * you need a lightweight solution
+  * You need a lightweight solution
   * Running multiple versions or instances of a single application
+</b></details>
+
+#### Containers - OCI
+
+<details>
+<summary>What is the OCI?</summary><br><b>
+
+OCI (Open Container Initiative) is an open governance established in 2015 to standardize container creation - mostly image format and runtime. At that time there were a number of parties involved and the most prominent one was Docker.
+
+Specifications published by OCI:
+
+  - [image-spec](https://github.com/opencontainers/image-spec)
+  - [runtime-spec](https://github.com/opencontainers/runtime-spec)
+</b></details>
+
+<details>
+<summary>Which operations OCI based containers must support?</summary><br><b>
+
+Create, Kill, Delete, Start and Query State.
+</b></details>
+
+#### Containers - Basic Commands
+
+<details>
+<summary>How to list all the containers on a given host?</summary><br><b>
+
+`podman container ls` or `docker container ls` (depends on which containers technology you are using)
+</b></details>
+
+<details>
+<summary>How to run a container?</summary><br><b>
+
+Depends on which containers technology you are using.
+
+`docker container run ubuntu` or `podman container run ubuntu` for example.
+</b></details>
+
+<details>
+<summary>Why after running <code>podman container run ubuntu</code> the output of <code>podman container ls</code> is empty?</summary><br><b>
+
+Because the container immediately exits after running the ubuntu image. This is completely normal and expected as containers designed to run a service or a app and exit when they are done running it.<br>
+
+If you want the container to keep running, you can run a command like `sleep 100` which will run for 100 seconds or you can attach to terminal of the container with a command similar: `podman container run -it ubuntu /bin/bash`
+</b></details>
+
+<details>
+<summary>How to attach your shell to a terminal of a running container?</summary><br><b>
+
+`podman container exec -it [container id/name] bash`
+
+This can be done in advance while running the container: `podman container run -it [image:tag] /bin/bash`
+</b></details>
+
+<details>
+<summary>True or False? You can remove a running container if it doesn't running anything</summary><br><b>
+
+False. You have to stop the container before removing it.
+</b></details>
+
+<details>
+<summary>How to stop and remove a container?</summary><br><b>
+
+`podman container stop [contatiner id/name] && podman container rm [container id/name]`
+</b></details>
+
+#### Containers - Images
+
+<details>
+<summary>What is a container image?</summary><br><b>
+
+* An image of a container contains the application, its dependencies and the operating system where the application is executed.<br>
+* It's a collection of read-only layers. These layers are loosely coupled
+  * Each layer is assembled out of one or more files
+</b></details>
+
+<details>
+<summary>Why container images are relatively small?</summary><br><b>
+
+* Most of the images don't contain Kernel. They share and access the one used by the host on which they are running
+* Containers intended to run specific application in most cases. This means they hold only what the application needs in order to run
+</b></details>
+
+<details>
+<summary>How to list the container images on certain host?</summary><br><b>
+
+`podman image ls`<br>
+`docker image ls`
+
+Depends on which containers engine you use.
+</b></details>
+
+<details>
+<summary>How the centralized location, where images are stored, is called?</summary><br><b>
+
+Registry
+</b></details>
+
+<details>
+<summary>A registry contains one or more <code>____</code> which in turn contain one or more <code>____</code></summary><br><b>
+
+A registry contains one or more repositories which in turn contain one or more images.
+</b></details>
+
+<details>
+<summary>How to find out which registry do you use by default from your environment?</summary><br><b>
+
+Depends on the containers technology you are using. For example, in case of Docker, it can be done with `docker info`
+
+```
+> docker info
+Registry: https://index.docker.io/v1
+```
+</b></details>
+
+<details>
+<summary>How to retrieve the latest ubuntu image?</summary><br><b>
+
+`docker image pull ubuntu:latest`
+</b></details>
+
+<details>
+<summary>True or False? It's not possible to remove an image if a certain container is using it</summary><br><b>
+
+True. You should stop and remove the container before trying to remove the image it uses.
+</b></details>
+
+<details>
+<summary>True or False? If a tag isn't specified when pulling an image, the 'latest' tag is being used</summary><br><b>
+
+True
+</b></details>
+
+<details>
+<summary>Using the 'latest' tag when pulling an image means, you are pulling the most recently published image</summary><br><b>
+
+False. While this might be true in some cases, it's not guaranteed that you'll pull the latest published image when using the 'latest' tag.<br>
+For example, in some images, 'edge' tag is used for the most recently published images.
+</b></details>
+
+<details>
+<summary>Where pulled images are stored?</summary><br><b>
+
+Depends on the container technology being used. For example, in case of Docker, images are stored in `/var/lib/docker/`
+</b></details>
+
+<details>
+<summary>Explain container image layers</summary><br><b>
+
+  - The layers of an image is where all the content is stored - code, files, etc.
+  - Each layer is independent
+  - Each layer has an ID that is an hash based on its content
+  - The layers (as the image) are immutable which means a change to one of the layers can be easily identified
+</b></details>
+
+<details>
+<summary>True or False? Changing the content of any of the image layers will cause the hash content of the image to change</summary><br><b>
+
+True. These hashes are content based and since images (and their layers) are immutable, any change will cause the hashes to change.
+</b></details>
+
+<details>
+<summary>How to list the layers of an image?</summary><br><b>
+
+In case of Docker, you can use `docker image inspect <name>`
+</b></details>
+
+<details>
+<summary>True or False? In most cases, container images contain their own kernel</summary><br><b>
+
+False. They share and access the one used by the host on which they are running.
+</b></details>
+
+<details>
+<summary>True or False? A single container image can have multiple tags</summary><br><b>
+
+True. When listing images, you might be able to see two images with the same ID but different tags.
+</b></details>
+
+<details>
+<summary>What is a dangling image?</summary><br><b>
+
+It's an image without tags attached to it.
+One way to reach this situation is by building an image with exact same name and tag as another already existing image. It can be still referenced by using its full SHA.
+</b></details>
+
+<details>
+<summary>How to see changes done to a given image over time?</summary><br><b>
+
+In the case of Docker, you could use `docker history <name>`
+</b></details>
+
+<details>
+<summary>True or False? Multiple images can share layers</summary><br><b>
+
+True.<br>
+One evidence for that can be found in pulling images. Sometimes when you pull an image, you'll see a line similar to the following:<br>
+`fa20momervif17: already exists`
+
+This is because it recognizes such layer already exists on the host, so there is no need to pull the same layer twice.
+</b></details>
+
+<details>
+<summary>What is the digest of an image? What problem does it solves?</summary><br><b>
+
+Tags are mutable. This is mean that we can have two different images with the same name and the same tag. It can be very confusing to see two images with the same name and the same tag in your environment. How would you know if they are truly the same or are they different?<br>
+
+This is where "digests` come handy. A digest is a content-addressable identifier. It isn't mutable as tags. Its value is predictable and this is how you can tell if two images are the same content wise and not merely by looking at the name and the tag of the images.
+</b></details>
+
+<details>
+<summary>True or False? A single image can support multiple architectures (Linux x64, Windows x64, ...)</summary><br><b>
+
+True.
+</b></details>
+
+<details>
+<summary>What is a distribution hash in regards to layers?</summary><br><b>
+
+  - Layers are compressed when pushed or pulled
+  - distribution hash is the hash of the compressed layer
+  - the distribution hash used when pulling or pushing images for verification (making sure no one tempered with image or layers)
+  - It's also used for avoiding ID collisions (a case where two images have exactly the same generated ID)
+</b></details>
+
+<details>
+<summary>How multi-architecture images work? Explain by describing what happens when an image is pulled</summary><br><b>
+
+1. A client makes a call to the registry to use a specific image (using an image name and optionally a tag)
+2. A manifest list is parsed (assuming it exists) to check if the architecture of the client is supported and available as a manifest
+3. If it is supported (a manifest for the architecture is available) the relevant manifest is parsed to obtain the IDs of the layers
+4. Each layer is then pulled using the obtained IDs from the previous step
+</b></details>
+
+<details>
+<summary>How to check which architectures a certain container image supports?</summary><br><b>
+
+`docker manifest inspect <name>`
+</b></details>
+
+#### Containers - Volume
+
+<details>
+<summary>How to create a new volume?</summary><br><b>
+
+`docker volume create some_volume`
+</b></details>
+
+#### Containers - Dockerfile
+
+<details>
+<summary>What is Dockerfile</summary><br><b>
+
+Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
+</b></details>
+
+<details>
+<summary>What is the difference between ADD and COPY in Dockerfile?</summary><br><b>
+
+COPY takes in a src and destination. It only lets you copy in a local file or directory from your host (the machine building the Docker image) into the Docker image itself.
+ADD lets you do that too, but it also supports 2 other sources. First, you can use a URL instead of a local file / directory. Secondly, you can extract a tar file from the source directly into the destination.
+Although ADD and COPY are functionally similar, generally speaking, COPY is preferred. That’s because it’s more transparent than ADD. COPY only supports the basic copying of local files into the container, while ADD has some features (like local-only tar extraction and remote URL support) that are not immediately obvious.
+</b></details>
+
+<details>
+<summary>What is the difference between CMD and RUN in Dockerfile?</summary><br><b>
+
+RUN lets you execute commands inside of your Docker image. These commands get executed once at build time and get written into your Docker image as a new layer.
+CMD is the command the container executes by default when you launch the built image. A Dockerfile can only have one CMD.
+You could say that CMD is a Docker run-time operation, meaning it’s not something that gets executed at build time. It happens when you run an image. A running image is called a container.
+</b></details>
+
+<details>
+<summary>How to create a new image using a Dockerfile?</summary><br><b>
+
+The following command is executed from within the directory where Dockefile resides:
+
+`podman image build -t some_app:latest .`
+</b></details>
+
+<details>
+<summary>Do you perform any checks or testing related to your Dockerfile?</summary><br><b>
+
+One option is to use [hadolint](https://github.com/hadolint/hadolint) project which is a linter based on Dockerfile best practices.
 </b></details>
 
 #### Containers - Architecture
@@ -5671,27 +6013,10 @@ Through the use of namespaces and cgroups. Linux kernel has several types of nam
 <details>
 <summary>Describe in detail what happens when you run `podman/docker run hello-world`?</summary><br><b>
 
-Docker CLI passes your request to Docker daemon.
-Docker daemon downloads the image from Docker Hub
-Docker daemon creates a new container by using the image it downloaded
-Docker daemon redirects output from container to Docker CLI which redirects it to the standard output
-</b></details>
-
-<details>
-<summary>What are `dockerd, docker-containerd, docker-runc, docker-containerd-ctr, docker-containerd-shim` ?</summary><br><b>
-
-dockerd - The Docker daemon itself. The highest level component in your list and also the only 'Docker' product listed. Provides all the nice UX features of Docker.
-
-(docker-)containerd - Also a daemon, listening on a Unix socket, exposes gRPC endpoints. Handles all the low-level container management tasks, storage, image distribution, network attachment, etc...
-
-(docker-)containerd-ctr - A lightweight CLI to directly communicate with containerd. Think of it as how 'docker' is to 'dockerd'.
-
-(docker-)runc - A lightweight binary for actually running containers. Deals with the low-level interfacing with Linux capabilities like cgroups, namespaces, etc...
-
-(docker-)containerd-shim - After runC actually runs the container, it exits (allowing us to not have any long-running processes responsible for our containers). The shim is the component which sits between containerd and runc to facilitate this.
-
-![alt text](https://i.stack.imgur.com/lAtSR.png "Docker Process")
-
+Docker/Podman CLI passes your request to Docker daemon.
+Docker/Podman daemon downloads the image from Docker Hub
+Docker/Podman daemon creates a new container by using the image it downloaded
+Docker/Podman daemon redirects output from container to Docker CLI which redirects it to the standard output
 </b></details>
 
 <details>
@@ -5716,6 +6041,55 @@ Multiple namespaces: pid,net, mnt, uts, ipc, user
 
 </b></details>
 
+#### Containers - Docker Architecture
+
+<details>
+<summary>Which components/layers compose the Docker technology?</summary><br><b>
+
+1. Runtime - responsible for starting and stopping containers
+2. Daemon - implements the Docker API and takes care of managing images (including builds), authentication, security, networking, etc.
+3. Orchestrator
+</b></details>
+
+<details>
+<summary>What components are part of the Docker engine?</summary><br><b>
+
+  - Docker daemon
+  - containerd
+  - runc
+</b></details>
+
+<details>
+<summary>What is the low-level runtime?</summary><br><b>
+
+  - The low level runtime is called runc
+  - It manages every container running on Docker host
+  - Its purpose is to interact with the underlying OS to start and stop containers
+  - Its reference implementation is of the OCI (Open Containers Initiative) container-runtime-spec
+  - It's a small CLI wrapper for libcontainer
+</b></details>
+
+<details>
+<summary>What is the high-level runtime?</summary><br><b>
+
+  - The high level runtime is called containerd
+  - It was developed by Docker Inc and at some point donated to CNCF
+  - It manages the whole lifecycle of a container - start, stop, remove and pause
+  - It take care of setting up network interfaces, volume, pushing and pulling images, ...
+  - It manages the lower level runtime (runc) instances
+  - It's used both by Docker and Kubernetes as a container runtime
+  - It sits between Docker daemon and runc at the OCI layer
+
+Note: running `ps -ef | grep -i containerd` on a system with Docker installed and running, you should see a process of containerd
+</b></details>
+
+<details>
+<summary>True or False? The docker daemon (dockerd) performs lower-level tasks compared to containerd</summary><br><b>
+
+False. The Docker daemon performs higher-level tasks compared to containerd.<br>
+It's responsible for managing networks, volumes, images, ...
+</b></details>
+
 <details>
 <summary>Describe in detail what happens when you run `docker pull image:tag`?</summary><br><b>
 Docker CLI passes your request to Docker daemon. Dockerd Logs shows the process
@@ -5729,13 +6103,45 @@ pulling blob \"sha256:61c5ed1cbdf8e801f3b73d906c61261ad916b2532d6756e7c4fbcacb97
 Applying tar in /var/lib/docker/overlay2/507df36fe373108f19df4b22a07d10de7800f33c9613acb139827ba2645444f7/diff" storage-driver=overlay2
 
 Applied tar sha256:514c3a3e64d4ebf15f482c9e8909d130bcd53bcc452f0225b0a04744de7b8c43 to 507df36fe373108f19df4b22a07d10de7800f33c9613acb139827ba2645444f7, size: 1223534
-
 </b></details>
 
 <details>
-<summary>How do you run a container?</summary><br><b>
+<summary>Describe in detail what happens when you run a container</summary><br><b>
 
-`podman run` or `docker run`
+1. The Docker client converts the run command into an API payload
+2. It then POST the payload to the API endpoint exposed by the Docker daemon
+3. When the daemon receives the command to create a new container, it makes a call to containerd via gRPC
+4. containerd converts the required image into an OCI bundle and tells runc to use that bundle for creating the container
+5. runc interfaces with the OS kernel to pull together the different constructs (namespace, cgroups, etc.) used for creating the container
+6. Container process is started as a child-process of runc
+7. Once it starts, runc exists
+</b></details>
+
+<details>
+<summary>True or False? Killing the Docker daemon will kill all the running containers</summary><br><b>
+
+False. While this was true at some point, today the container runtime isn't part of the daemon (it's part of containerd and runc) so stopping or killing the daemon will not affect running containers.
+</b></details>
+
+<details>
+<summary>True or False? containerd forks a new instance runc for every container it creates</summary><br><b>
+
+True
+</b></details>
+
+<details>
+<summary>True or False? Running a dozen of containers will result in having a dozen of runc processes</summary><br><b>
+
+False. Once a container is created, the parent runc process exists.
+</b></details>
+
+<details>
+<summary>What is shim in regards to Docker?</summary><br><b>
+
+shim is the process that becomes the container's parent when runc process exists. It's responsible for:
+
+  - Reporting exit code back to the Docker daemon
+  - Making sure the container doesn't terminate if the daemon is being restarted. It does so by keeping the stdout and stdin open
 </b></details>
 
 <details>
@@ -5772,34 +6178,10 @@ Create a new image from a container’s changes
 3. docker rm $(docker ps -a -q) - This command will delete all stopped containers. The command docker ps -a -q will return all existing container IDs and pass them to the rm command which will delete them. Any running containers will not be deleted.
 </b></details>
 
-##### Dockerfile
-
 <details>
-<summary>What is Dockerfile</summary><br><b>
+<summary>How the Docker client communicates with the daemon?</summary><br><b>
 
-Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
-</b></details>
-
-<details>
-<summary>What is the difference between ADD and COPY in Dockerfile?</summary><br><b>
-
-COPY takes in a src and destination. It only lets you copy in a local file or directory from your host (the machine building the Docker image) into the Docker image itself.
-ADD lets you do that too, but it also supports 2 other sources. First, you can use a URL instead of a local file / directory. Secondly, you can extract a tar file from the source directly into the destination.
-Although ADD and COPY are functionally similar, generally speaking, COPY is preferred. That’s because it’s more transparent than ADD. COPY only supports the basic copying of local files into the container, while ADD has some features (like local-only tar extraction and remote URL support) that are not immediately obvious.
-</b></details>
-
-<details>
-<summary>What is the difference between CMD and RUN in Dockerfile?</summary><br><b>
-
-RUN lets you execute commands inside of your Docker image. These commands get executed once at build time and get written into your Docker image as a new layer.
-CMD is the command the container executes by default when you launch the built image. A Dockerfile can only have one CMD.
-You could say that CMD is a Docker run-time operation, meaning it’s not something that gets executed at build time. It happens when you run an image. A running image is called a container.
-</b></details>
-
-<details>
-<summary>Do you perform any checks or testing related to your Dockerfile?</summary><br><b>
-
-A common answer to this is to use [hadolint](https://github.com/hadolint/hadolint) project which is a linter based on Dockerfile best practices.
+Via the local socket at `/var/run/docker.sock`
 </b></details>
 
 <details>
@@ -5819,25 +6201,6 @@ For example, you can use it to set up ELK stack where the services are: elastics
 
 <details>
 <summary>Explain Docker interlock</summary><br><b>
-</b></details>
-
-<details>
-<summary>Where can you store Docker images?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is Docker Hub?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is the difference between Docker Hub and Docker cloud?</summary><br><b>
-
-Docker Hub is a native Docker registry service which allows you to run pull
-and push commands to install and deploy Docker images from the Docker Hub.
-
-Docker Cloud is built on top of the Docker Hub so Docker Cloud provides
-you with more options/features compared to Docker Hub. One example is
-Swarm management which means you can create new swarms in Docker Cloud.
 </b></details>
 
 <details>
@@ -5867,6 +6230,44 @@ Because each container has its own writable container layer, and all changes are
 
 <details>
 <summary>How do you copy files from Docker container to the host and vice versa?</summary><br><b>
+</b></details>
+
+#### Containers - Docker Images
+
+<details>
+<summary>What is Docker Hub?</summary><br><b>
+
+One of the most common registries for retrieving images.
+</b></details>
+
+<details>
+<summary>How to push an image to Docker Hub?</summary><br><b>
+
+`docker image push [username]/[image name]:[tag]`
+
+For example:
+
+`docker image mario/web_app:latest`
+</b></details>
+
+<details>
+<summary>What is the difference between Docker Hub and Docker cloud?</summary><br><b>
+
+Docker Hub is a native Docker registry service which allows you to run pull
+and push commands to install and deploy Docker images from the Docker Hub.
+
+Docker Cloud is built on top of the Docker Hub so Docker Cloud provides
+you with more options/features compared to Docker Hub. One example is
+Swarm management which means you can create new swarms in Docker Cloud.
+</b></details>
+
+#### Containers - Docker in Production
+
+<details>
+<summary>True or False? It's recommended for production environments that Docker client and server will communicate over network using HTTP socket</summary><br><b>
+
+False. Communication between client and server shouldn't be done over HTTP since it's insecure. It's better to enforce the daemon to only accept network connection that are secured with TLS.<br>
+Basically, the Docker daemon will only accept secured connections with certificates from trusted CA.
 </b></details>
 
 ## Kubernetes
@@ -5912,15 +6313,21 @@ Read more [here](https://www.redhat.com/en/topics/containers/what-is-a-kubernete
 <details>
 <summary>Do you have experience with deploying a Kubernetes cluster? If so, can you describe the process in high-level?</summary><br><b>
 
-1. Create multiple instances you will use as Kubernetes nodes/workers. Create also an instance to act as the Master. The instances can be part of the cloud or virtual machines on physical hosts.
-2. <TODO>
+1. Create multiple instances you will use as Kubernetes nodes/workers. Create also an instance to act as the Master. The instances can be provisioned in a cloud or they can be virtual machines on bare metal hosts.
+2. Provision a certificate authority that will be used to generate TLS certificates for the different components of a Kubernetes cluster (kubelet, etcd, ...)
+  1. Generate a certificate and private key for the different components
+3. Generate kubeconfigs so the different clients of Kubernetes can locate the API servers and authenticate.
+4. Generate encryption key that will be used for encrypting the cluster data
+5. Create an etcd cluster
 </b></details>
 
 <details>
 <summary>When or why NOT to use Kubernetes?</summary><br><b>
 
-  - If you deploy applications using containers and you need to manage scaling, rolling out updates, etc. You probably want to use Kubernetes
+  - If you are big team of engineers (e.g. 200) deploying applications using containers and you need to manage scaling, rolling out updates, etc. You probably want to use Kubernetes
+      
   - If you manage low level infrastructure or baremetals, Kubernetes is probably not what you need or want
+  - If you are a small team (e.g. 20-50 engineers) Kubernetes might be an overkill (even if you need scale, rolling out updates, etc.)
 </b></details>
 
 <details>
@@ -5940,6 +6347,13 @@ Read more [here](https://www.redhat.com/en/topics/containers/what-is-a-kubernete
 <summary>What fields are mandatory with any Kubernetes object?</summary><br><b>
 
 metadata, kind and apiVersion
+</b></details>
+
+<details>
+<summary>What actions or operations you consider as best practices when it comes to Kuberentes?</summary><br><b>
+
+  - Always make sure Kubernetes YAML files are valid. Applying automated checks and pipelines is recommended.
+  - Always specify requests and limits to prevent situation where containers are using the entire cluster memory which may lead to OOM issue
 </b></details>
 
 <details>
@@ -6001,6 +6415,18 @@ False. A Kubernetes cluster consists of at least 1 master and can have 0 workers
 <img src="images/kubernetes/kubernetes_components.png"/>
 </summary><br><b>
 <img src="images/kubernetes/kubernetes_components_solution.png"/>
+</b></details>
+
+<details>
+<summary>You are managing multiple Kubernetes clusters. How do you quickly change between the clusters using kubectl?</summary><br><b>
+
+`kubectl config use-context`
+</b></details>
+
+<details>
+<summary>How do you prevent high memory usage in your Kubernetes cluster and possibly issues like memory leak and OOM?</summary><br><b>
+
+Apply requests and limits, especially on third party applications (where the uncertainty is even bigger)
 </b></details>
 
 #### Kubernetes - Pods
@@ -6218,6 +6644,12 @@ You can read more about it in [kubernetes.io](https://kubernetes.io/docs/tasks/c
 Only containers whose state set to Success will be able to receive requests sent to the Service.
 </b></details>
 
+<details>
+<summary>Why it's usually considered better to include one container per Pod?</summary><br><b>
+
+One reason is that it makes it harder to scale, when you need to scale only one of the containers in a given Pod.
+</b></details>
+
 #### Kubernetes - Deployments
 
 <details>
@@ -6289,7 +6721,7 @@ In simpler words, it allows you to add an internal or external connectivity to a
 </b></details>
 
 <details>
-<summary>True or False? The lifecycle of Pods and Services isn't connected so when a pod dies, the service still stays </summary><br><b>
+<summary>True or False? The lifecycle of Pods and Services isn't connected so when a Pod dies, the Service still stays </summary><br><b>
 
 True
 </b></details>
@@ -6314,7 +6746,9 @@ The default is ClusterIP and it's used for exposing a port internally. It's usef
 <details>
 <summary>How to get information on a certain service?</summary><br><b>
 
-kubctl describe service <SERVICE_NAME>
+`kubctl describe service <SERVICE_NAME>`
+
+It's more common to use `kubectl describe svc ...`
 </b></details>
 
 <details>
@@ -6325,13 +6759,50 @@ kubectl expose rs some-replicaset --name=replicaset-svc --target-port=2017 --typ
 ```
 </summary><br><b>
 
-It exposes a ReplicaSet by creating a service called 'replicaset-svc'. The exposed port is 2017 and the service type is NodePort which means it will be reachable externally.
+It exposes a ReplicaSet by creating a service called 'replicaset-svc'. The exposed port is 2017 (this is the port used by the application) and the service type is NodePort which means it will be reachable externally.
+</b></details>
+
+<details>
+<summary>True or False? the target port, in the case of running the following command, will be exposed only on one of the Kubernetes cluster nodes but it will routed to all the pods
+
+```
+kubectl expose rs some-replicaset --name=replicaset-svc --target-port=2017 --type=NodePort
+```
+</summary><br><b>
+
+False. It will be exposed on every node of the cluster and will be routed to one of the Pods (which belong to the ReplicaSet)
 </b></details>
 
 <details>
 <summary>How to verify that a certain service configured to forward the requests to a given pod</summary><br><b>
 
-Run `kubectl describe service` and if the IPs from "Endpoints" match any IPs from the output of `kubectl get pod -o wide`
+Run `kubectl describe service` and see if the IPs from "Endpoints" match any IPs from the output of `kubectl get pod -o wide`
+</b></details>
+
+<details>
+<summary>Explain what will happen when running apply on the following block
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: some-app
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    nodePort: 2017
+    protocol: TCP
+  selector:
+    type: backend
+    service: some-app
+```
+</summary><br><b>
+
+It creates a new Service of the type "NodePort" which means it can be used for internal and external communication with the app.<br>
+The port of the application is 8080 and the requests will forwarded to this port. The exposed port is 2017. As a note, this is not a common practice, to specify the nodePort.<br>
+The port used TCP (instead of UDP) and this is also the default so you don't have to specify it.<br>
+The selector used by the Service to know to which Pods to forward the requests. In this case, Pods with the label "type: backend" and "service: some-app".<br>
 </b></details>
 
 <details>
@@ -6367,6 +6838,62 @@ spec:
 <summary>What would you use to route traffic from outside the Kubernetes cluster to services within a cluster?</summary><br><b>
 
 Ingress
+</b></details>
+
+<details>
+<summary>True or False? When "NodePort" is used, "ClusterIP" will be created automatically?</summary><br><b>
+
+True
+</b></details>
+
+<details>
+<summary>When would you use the "LoadBalancer" type</summary><br><b>
+
+Mostly when you would like to combine it with cloud provider's load balancer
+</b></details>
+
+<details>
+<summary>How would you map a service to an external address?</summary><br><b>
+
+Using the 'ExternalName' directive.
+</b></details>
+
+<details>
+<summary>Describe in detail what happens when you create a service</summary><br><b>
+
+1. Kubectl sends a request to the API server to create a Service
+2. The controller detects there is a new Service
+3. Endpoint objects created with the same name as the service, by the controller
+4. The controller is using the Service selector to identify the endpoints
+5. kube-proxy detects there is a new endpoint object + new service and adds iptables rules to capture traffic to the Service port and redirect it to endpoints
+6. kube-dns detects there is a new Service and adds the container record to the dns server
+</b></details>
+
+<details>
+<summary>How to list the endpoints of a certain app?</summary><br><b>
+
+`kubectl get ep <name>`
+</b></details>
+
+<details>
+<summary>How can you find out information on a Service related to a certain Pod if all you can use is <code>kubectl exec <POD_NAME> -- </code></summary><br><b>
+
+You can run `kubectl exec <POD_NAME> -- env` which will give you a couple environment variables related to the Service.<br>
+Variables such as `[SERVICE_NAME]_SERVICE_HOST`, `[SERVICE_NAME]_SERVICE_PORT`, ...
+</b></details>
+
+<details>
+<summary>Describe what happens when a container tries to connect with its corresponding Service for the first time. Explain who added each of the components you include in your description</summary><br><b>
+
+  - The container looks at the nameserver defined in /etc/resolv.conf
+  - The container queries the nameserver so the address is resolved to the Service IP
+  - Requests sent to the Service IP are forwarded with iptables rules (or other chosen software) to the endpoint(s).
+
+Explanation as to who added them:
+
+  - The nameserver in the container is added by kubelet during the scheduling of the Pod, by using kube-dns
+  - The DNS record of the service is added by kube-dns during the Service creation
+  - iptables rules are added by kube-proxy during Endpoint and Service creation
 </b></details>
 
 #### Kubernetes - Ingress
@@ -6406,6 +6933,7 @@ spec:
 ```
 </b></details>
 
+
 <details>
 <summary>Explain the meaning of "http", "host" and "backend" directives
 
@@ -6428,6 +6956,12 @@ spec:
 host is the entry point of the cluster so basically a valid domain address that maps to cluster's node IP address<br>
 the http line used for specifying that incoming requests will be forwarded to the internal service using http.<br>
 backend is referencing the internal service (serviceName is the name under metadata and servicePort is the port under the ports section).
+</b></details>
+
+<details>
+<summary>Why using a wildcard in ingress host may lead to issues?</summary><br><b>
+
+The reason you should not wildcard value in a host (like `- host: *`) is because you basically tell your Kubernetes cluster to forward all the traffic to the container where you used this ingress. This may cause the entire cluster to go down.
 </b></details>
 
 <details>
@@ -6621,6 +7155,49 @@ True (and not only the Pods but anything else it created).
 True. When the label, used by a ReplicaSet in the selector field, removed from a Pod, that Pod no longer controlled by the ReplicaSet and the ReplicaSet will create a new Pod to compensate for the one it "lost".
 </b></details>
 
+<details>
+<summary>How to scale a deployment to 8 replicas?</code></summary><br><b>
+
+kubectl scale deploy <DEPLOYMENT_NAME> --replicas=8
+</b></details>
+
+<details>
+<summary>ReplicaSets are running the moment the user executed the command to create them (like <code>kubectl create -f rs.yaml</code>)</summary><br><b>
+
+False. It can take some time, depends on what exactly you are running. To see if they are up and running, run `kubectl get rs` and watch the 'READY' column.
+</b></details>
+
+<details>
+<summary>How to expose a ReplicaSet as a new service?</summary><br><b>
+
+`kubectl expose rs <ReplicaSet Name> --name=<Service Name> --target-port=<Port to expose> --type=NodePort`
+
+Few notes:
+  - the target port depends on which port the app is using in the container
+  - type can be different and doesn't has to be specifically "NodePort"
+</b></details>
+
+#### Kubernetes - Storage
+
+<details>
+<summary>What is a volume in regards to Kubernetes?</summary><br><b>
+
+A directory accessible by the containers inside a certain Pod. The mechanism responsible for creating the directory and managing it, ... is mainly depends on the volume type.
+</b></details>
+
+<details>
+<summary>Which problems volumes in Kubernetes solve?</summary><br><b>
+
+1. Sharing files between containers running in the same Pod
+2. Storage in containers is ephemeral - it usually doesn't last for long. For example, when a container crashes, you lose all on-disk data.
+</b></details>
+
+<details>
+<summary>Explain ephemeral volume types vs. persistent volumes in regards to Pods</summary><br><b>
+
+Ephemeral volume types have the lifetime of a pod as opposed to persistent volumes which exist beyond the lifetime of a Pod.
+</b></details>
+
 #### Kubernetes - Network Policies
 
 <details>
@@ -6674,12 +7251,12 @@ YAML
 </b></details>
 
 <details>
-<summary>Where Kubernetes gets the status data (which is added to the configuration file) from?</summary><br><b>
+<summary>Where Kubernetes cluster stores the cluster state?</summary><br><b>
 
 etcd
 </b></details>
 
-#### Kubernetes etcd
+#### Kubernetes - etcd
 
 <details>
 <summary>What is etcd?</summary><br><b>
@@ -6701,6 +7278,10 @@ True
 <summary>True or False? application data is not stored in etcd</summary><br><b>
 
 True
+</b></details>
+
+<details>
+<summary>Why etcd? Why not some SQL or NoSQL database?</summary><br><b>
 </b></details>
 
 #### Kubernetes - Namespaces
@@ -6872,42 +7453,6 @@ metadata:
 and you can verify with: `kubectl get configmap -n some-namespace`
 </b></details>
 
-#### Kubernetes Commands
-
-<details>
-<summary>What <code>kubectl exec</code> does?</code></summary><br><b>
-</b></details>
-
-<details>
-<summary>What <code>kubectl get all</code> does?</code></summary><br><b>
-</b></details>
-
-<details>
-<summary>What the command <code>kubectl get pod</code> does?</code></summary><br><b>
-</b></details>
-
-<details>
-<summary>How to see all the components of a certain application?</code></summary><br><b>
-
-`kubectl get all | grep [APP_NAME]`
-</b></details>
-
-<details>
-<summary>What <code>kubectl apply -f [file]</code> does?</code></summary><br><b>
-</b></details>
-
-<details>
-<summary>What the command <code>kubectl api-resources --namespaced=false</code> does?</code></summary><br><b>
-
-Lists the components that doesn't bound to a namespace.
-</b></details>
-
-<details>
-<summary>How to print information on a specific pod?</code></summary><br><b>
-
-`kubectl describe pod pod_name`
-</b></details>
-
 <details>
 <summary>How to execute the command "ls" in an existing pod?</code></summary><br><b>
 
@@ -6932,12 +7477,6 @@ kubectl run nginx --image=nginx --restart=Never --port 80 --expose
 
 <details>
 <summary>Why to create kind deployment, if pods can be launched with replicaset?</summary><br><b>
-</b></details>
-
-<details>
-<summary>How to scale a deployment to 8 replicas?</code></summary><br><b>
-
-kubectl scale deploy some-deployment --replicas=8
 </b></details>
 
 <details>
@@ -7024,7 +7563,7 @@ False. CPU is a compressible resource while memory is a non compressible resourc
 Explained [here](https://www.youtube.com/watch?v=i9V4oCa5f9I)
 </b></details>
 
-#### Kubernetes Operator
+#### Kubernetes - Operators
 
 <details>
 <summary>What is an Operator?</summary><br><b>
@@ -7298,7 +7837,81 @@ The pod is automatically assigned with the default service account (in the names
 `kubectl get serviceaccounts`
 </b></details>
 
+<details>
+<summary>Explain "Security Context"</summary><br><b>
+
+[kubernetes.io](https://kubernetes.io/docs/tasks/configure-pod-container/security-context): "A security context defines privilege and access control settings for a Pod or Container."
+</b></details>
+
+#### Kubernetes - Patterns
+
+<details>
+<summary>Explain the sidecar container pattern</summary><br><b>
+</b></details>
+
+#### Kubernetes - CronJob
+
+<details>
+<summary>Explain what is CronJob and what is it used for</summary><br><b>
+</b></details>
+
+<details>
+<summary>What possible issue can arise from using the following spec and how to fix it?
+
+```
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: some-cron-job
+spec:
+  schedule: '*/1 * * * *'
+  startingDeadlineSeconds: 10
+  concurrencyPolicy: Allow
+```
+</summary><br><b>
+
+If the cron job fails, the next job will not replace the previous one due to the "concurrencyPolicy" value which is "Allow". It will keep spawning new jobs and so eventually the system will be filled with failed cron jobs.
+To avoid such problem, the "concurrencyPolicy" value should be either "Replace" or "Forbid".
+</b></details>
+
+<details>
+<summary>What issue might arise from using the following CronJob and how to fix it?
+
+```
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: "some-cron-job"
+spec:
+  schedule: '*/1 * * * *'
+jobTemplate:
+  spec:
+    template:
+      spec:
+      restartPolicy: Never
+      concurrencyPolicy: Forbid
+      successfulJobsHistoryLimit: 1
+      failedJobsHistoryLimit: 1
+```
+</summary><br><b>
+
+The following lines placed under the template:
+
+```
+concurrencyPolicy: Forbid
+successfulJobsHistoryLimit: 1
+failedJobsHistoryLimit: 1
+```
+
+As a result this configuration isn't part of the cron job spec hence the cron job has no limits which can cause issues like OOM and potentially lead to API server being down.<br>
+To fix it, these lines should placed in the spec of the cron job, above or under the "schedule" directive in the above example.
+</b></details>
+
 #### Kubernetes - Misc
+
+<details>
+<summary>Explain Imperative Management vs. Declarative Management</summary><br><b>
+</b></details>
 
 <details>
 <summary>Explain what Kubernetes Service Discovery means</summary><br><b>
@@ -7337,7 +7950,7 @@ Overall it's good for:
 </b></details>
 
 <details>
-<summary>Trur or False? Sensitive data, like credentials, should be stored in a ConfigMap</summary><br><b>
+<summary>True or False? Sensitive data, like credentials, should be stored in a ConfigMap</summary><br><b>
 
 False. Use secret.
 </b></details>
@@ -7387,11 +8000,6 @@ View more [here](https://www.youtube.com/watch?v=rDCWxkvPlAw)
 <summary> How are labels and selectors used?</summary><br><b>
 </b></details>
 
-
-<details>
-<summary>Explain what is CronJob and what is it used for</summary><br><b>
-</b></details>
-
 <details>
 <summary>What QoS classes are there?</summary><br><b>
 
@@ -7412,7 +8020,36 @@ View more [here](https://www.youtube.com/watch?v=rDCWxkvPlAw)
 <summary>What is Kubeconfig?</summary><br><b>
 </b></details>
 
-#### Helm
+#### Kubernetes - Gatekeeper
+
+<details>
+<summary>What is Gatekeeper?</summary><br><b>
+
+[Gatekeeper docs](https://open-policy-agent.github.io/gatekeeper/website/docs): "Gatekeeper is a validating (mutating TBA) webhook that enforces CRD-based policies executed by Open Policy Agent"
+</b></details>
+
+<details>
+<summary>Explain how Gatekeeper works</summary><br><b>
+
+On every request sent to the Kubernetes cluster, Gatekeeper sends the policies and the resources to OPA (Open Policy Agent) to check if it violates any policy. If it does, Gatekeeper will return the policy error message back. If it isn't violates any policy, the request will reach the cluster.
+</b></details>
+
+#### Kubernetes - Policy Testing
+
+<details>
+<summary>What is Conftest?</summary><br><b>
+
+Conftest allows you to write tests against structured files. You can think of it as tests library for Kubernetes resources.<br>
+It is mostly used in testing environments such as CI pipelines or local hooks.
+</b></details>
+
+<details>
+<summary>What is Datree? How is it different from Conftest?</summary><br><b>
+
+Same as Conftest, it is used for policy testing and enforcement. The difference is that it comes with built-in policies.
+</b></details>
+
+#### Kubernetes - Helm
 
 <details>
 <summary>What is Helm?</summary><br><b>
@@ -7618,6 +8255,10 @@ True
 
 <details>
 <summary>What is "Duck Typing"?</summary><br><b>
+</b></details>
+
+<details>
+<summary>Explain string interpolation</summary><br><b>
 </b></details>
 
 ##### Common algorithms
@@ -9619,11 +10260,19 @@ Alert manager is responsible for alerts ;)
 <details>
 <summary>How do you know if a certain directory is a git repository?</summary><br><b>
 
-You can check if there is a ".git" directory inside it.
+You can check if there is a ".git" directory.
 </b></details>
 
 <details>
-<summary>How to check if a file is tracked and if not, then track it?</summary><br><b>
+<summary>Explain the following: <code>git directory</code>, <code>working directory</code> and <code>staging area</code></summary><br><b>
+
+This answer taken from [git-scm.com](https://git-scm.com/book/en/v1/Getting-Started-Git-Basics#_the_three_states)
+
+"The Git directory is where Git stores the meta data and object database for your project. This is the most important part of Git, and it is what is copied when you clone a repository from another computer.
+
+The working directory is a single checkout of one version of the project. These files are pulled out of the compressed database in the Git directory and placed on disk for you to use or modify.
+
+The staging area is a simple file, generally contained in your Git directory, that stores information about what will go into your next commit. It’s sometimes referred to as the index, but it’s becoming standard to refer to it as the staging area."
 </b></details>
 
 <details>
@@ -9639,15 +10288,44 @@ a separate branch in your local repository
 </b></details>
 
 <details>
-<summary>Explain the following: <code>git directory</code>, <code>working directory</code> and <code>staging area</code></summary><br><b>
+<summary>How to check if a file is tracked and if not, then track it?</summary><br><b>
 
-The Git directory is where Git stores the meta data and object database for your project. This is the most important part of Git, and it is what is copied when you clone a repository from another computer.
+There are different ways to check whether a file is tracked or not:
 
-The working directory is a single checkout of one version of the project. These files are pulled out of the compressed database in the Git directory and placed on disk for you to use or modify.
+  - `git ls-file <file>` -> exit code of 0 means it's tracked
+  - `git blame <file>`
+  ...
+</b></details>
 
-The staging area is a simple file, generally contained in your Git directory, that stores information about what will go into your next commit. It’s sometimes referred to as the index, but it’s becoming standard to refer to it as the staging area.
+<details>
+<summary>How can you see which changes have done before committing them?</summary><br><b>
 
-This answer taken from [git-scm.com](https://git-scm.com/book/en/v1/Getting-Started-Git-Basics#_the_three_states)
+`git diff```
+</b></details>
+
+<details>
+<summary>What <code>git status</code> does?</summary><br><b>
+</b></details>
+
+<details>
+<summary>You have two branches - main and devel. How do you make sure devel is in sync with main?</summary><br><b>
+
+```
+git checkout main
+git pull
+git checkout devel
+git merge main
+```
+</b></details>
+
+#### Git - Merge
+
+<details>
+<summary>You have two branches - main and devel. How do you put devel into main?</summary><br><b>
+
+git checkout main
+git merge devel
+git push origin main
 </b></details>
 
 <details>
@@ -9660,28 +10338,6 @@ colleagues on the conflicts or resolve them by yourself
 After resolving the conflicts, you add the files with `git add <file_name>`
 Finally, you run `git rebase --continue`
 </p>
-</b></details>
-
-<details>
-<summary>What is the difference between <code>git reset</code> and <code>git revert</code>?</summary><br><b>
-
-<p>
-
-`git revert` creates a new commit which undoes the changes from last commit.
-
-`git reset` depends on the usage, can modify the index or change the commit which the branch head
-is currently pointing at.
-</p>
-</b></details>
-
-<details>
-<summary>You would like to move forth commit to the top. How would you achieve that?</summary><br><b>
-
-Using the `git rebase` command
-</b></details>
-
-<details>
-<summary>In what situations are you using <code>git rebase</code>?</summary><br><b>
 </b></details>
 
 <details>
@@ -9698,9 +10354,38 @@ This page explains it the best: https://git-scm.com/docs/merge-strategies
 </b></details>
 
 <details>
-<summary>How can you see which changes have done before committing them?</summary><br><b>
+<summary>Explain Git octopus merge</summary><br><b>
 
-`git diff```
+Probably good to mention that it's:
+
+  * It's good for cases of merging more than one branch (and also the default of such use cases)
+  * It's primarily meant for bundling topic branches together
+
+This is a great article about Octopus merge: http://www.freblogg.com/2016/12/git-octopus-merge.html
+</b></details>
+
+<details>
+<summary>What is the difference between <code>git reset</code> and <code>git revert</code>?</summary><br><b>
+
+<p>
+
+`git revert` creates a new commit which undoes the changes from last commit.
+
+`git reset` depends on the usage, can modify the index or change the commit which the branch head
+is currently pointing at.
+</p>
+</b></details>
+
+#### Git - Rebase
+
+<details>
+<summary>You would like to move forth commit to the top. How would you achieve that?</summary><br><b>
+
+Using the `git rebase` command
+</b></details>
+
+<details>
+<summary>In what situations are you using <code>git rebase</code>?</summary><br><b>
 </b></details>
 
 <details>
@@ -9763,17 +10448,6 @@ If you would like to also discard the changes you `git reset --hard``
 <summary>True or False? To remove a file from git but not from the filesystem, one should use <code>git rm </code></summary><br><b>
 
 False. If you would like to keep a file on your filesystem, use `git reset <file_name>`
-</b></details>
-
-<details>
-<summary>Explain Git octopus merge</summary><br><b>
-
-Probably good to mention that it's:
-
-  * It's good for cases of merging more than one branch (and also the default of such use cases)
-  * It's primarily meant for bundling topic branches together
-
-This is a great article about Octopus merge: http://www.freblogg.com/2016/12/git-octopus-merge.html
 </b></details>
 
 ## Go
@@ -9996,7 +10670,7 @@ func mod2(a []int) {
 }
 
 func main() {
-	sl := []int{1, 2, 3, 4}
+	s1 := []int{1, 2, 3, 4}
 	mod1(s1)
 	fmt.Println("1:", s1)
 
@@ -10359,6 +11033,37 @@ oc adm policy add-role-to-user view user1 -n wonderland
 <summary>How to check what is the current context?</summary><br><b>
 
 `oc whoami --show-context`
+</b></details>
+
+#### OpenShift - Serverless
+
+<details>
+<summary>What is OpenShift Serverless?</summary><br><b>
+
+  - In general 'serverless' is a cloud computing model where scaling and provisioning is taken care for application developers, so they can focus on the development aspect rather infrastructure related tasks
+  - OpenShift Serverless allows you to dynamically scale your applications and provides the ability to build event-driven applications, whether the sources are on Kubernetes, the cloud or on-premise solutions
+  - OpenShift Serverless is based on the Knative project.
+</b></details>
+
+<details>
+<summary>What are some of the event sources you can use with OpenShift Serverless?</summary><br><b>
+
+  * Kafka
+  * Kubernetes APIs
+  * AWS Kinesis
+  * AWS SQS
+  * JIRA
+  * Slack
+
+More are supported and provided with OpenShift.
+</b></details>
+
+<details>
+<summary>Explain serverless functions</summary><br><b>
+</b></details>
+
+<details>
+<summary>What is the difference between Serverless Containers and Serverless functions?</summary><br><b>
 </b></details>
 
 #### OpenShift - Misc
@@ -11415,6 +12120,10 @@ Authorization is the process of identifying what level of access the service or 
 </b></details>
 
 <details>
+<summary>What is a Certificate Authority?</summary><br><b>
+</b></details>
+
+<details>
 <summary>How do you manage sensitive information (like passwords) in different tools and platforms?</summary><br><b>
 </b></details>
 
@@ -11446,6 +12155,14 @@ Access control based on user roles (i.e., a collection of access authorizations 
 
 <details>
 <summary>What is Nonce?</summary><br><b>
+</b></details>
+
+<details>
+<summary>What is SSRF?</summary><br><b>
+
+SSRF (Server-side request forgery) it's a vulnerability where you can make a server make arbitrary requests to anywhere you want.
+
+Read more about it at [portswigger.net](https://portswigger.net/web-security/ssrf)
 </b></details>
 
 #### Security - SSH
@@ -11684,7 +12401,7 @@ HTTP Header Injection vulnerabilities occur when user input is insecurely includ
 A buffer overflow (or buffer overrun) occurs when the volume of data exceeds the storage capacity of the memory buffer. As a result, the program attempting to write the data to the buffer overwrites adjacent memory locations.
 </b></details>
 
-##### Containers
+#### Security - Containers
 
 <details>
 <summary>What security measures are you taking when dealing with containers?</summary><br><b>
@@ -12156,6 +12873,9 @@ It's resolved in this order:
   * PTR
   * MX
   * AAAA
+  ...
+
+A more detailed list, can be found [here](https://www.nslookup.io/learning/dns-record-types)
 </b></details>
 
 <details>
@@ -12290,12 +13010,34 @@ It's an architecture in which data is and retrieved from a single, non-shared, s
 7. The browser then sends subsequent requests as needed to the server to get the embedded links, javascript, images in the HTML and then steps 3 to 5 are repeated.
 </b></details>
 
-<details>
-<summary>Define or Explain what is an API</summary><br><b>
+#### API
 
-I like this definition from [here](https://blog.christianposta.com/microservices/api-gateways-are-going-through-an-identity-crisis):
+<details>
+<summary>Explain what is an API</summary><br><b>
+
+I like this definition from [blog.christianposta.com](https://blog.christianposta.com/microservices/api-gateways-are-going-through-an-identity-crisis):
 
 "An explicitly and purposefully defined interface designed to be invoked over a network that enables software developers to get programmatic access to data and functionality within an organization in a controlled and comfortable way."
+</b></details>
+
+<details>
+<summary>What is an API specification?</summary><br><b>
+
+From [swagger.io](https://swagger.io/resources/articles/difference-between-api-documentation-specification):
+
+"An API specification provides a broad understanding of how an API behaves and how the API links with other APIs. It explains how the API functions and the results to expect when using the API"
+</b></details>
+
+<details>
+<summary>True or False? API Definition is the same as API Specification</summary><br><b>
+
+False. From [swagger.io](https://swagger.io/resources/articles/difference-between-api-documentation-specification):
+
+"An API definition is similar to an API specification in that it provides an understanding of how an API is organized and how the API functions. But the API definition is aimed at machine consumption instead of human consumption of APIs."
+</b></details>
+
+<details>
+<summary>What is a Payload in API?</summary><br><b>
 </b></details>
 
 <details>
@@ -12323,6 +13065,18 @@ Data about data. Basically, it describes the type of information that an underly
 <summary>You can use one of the following formats: JSON, YAML, XML. Which one would you use? Why?</summary><br><b>
 
 I can't answer this for you :)
+</b></details>
+
+<details>
+<summary>What's KPI?</summary><br><b>
+</b></details>
+
+<details>
+<summary>What's OKR?</summary><br><b>
+</b></details>
+
+<details>
+<summary>What's the difference between KPI and OKR?</summary><br><b>
 </b></details>
 
 #### YAML
@@ -12419,7 +13173,17 @@ document_number: 2
 ```
 </b></details>
 
-#### Jira
+#### Customers and Service Providers
+
+<details>
+<summary>What is SLO (service-level objective)?</summary><br><b>
+</b></details>
+
+<details>
+<summary>What is SLA (service-level agreement)?</summary><br><b>
+</b></details>
+
+## Jira
 
 <details>
 <summary>Explain/Demonstrate the following types in Jira:
@@ -12433,7 +13197,7 @@ document_number: 2
 <summary>What is a project in Jira?</summary><br><b>
 </b></details>
 
-#### Kafka
+## Kafka
 
 <details>
 <summary>What is Kafka?</summary><br><b>
@@ -12450,7 +13214,7 @@ percentage ratio
 </summary><br><b>
 </b></details>
 
-#### Cassandra
+## Cassandra
 
 <details>
 <summary>When running a cassandra cluster, how often do you need to run nodetool repair in order to keep the cluster consistent?
@@ -12461,17 +13225,7 @@ percentage ratio
 </summary><br><b>
 </b></details>
 
-#### Customers and Service Providers
-
-<details>
-<summary>What is SLO (service-level objective)?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is SLA (service-level agreement)?</summary><br><b>
-</b></details>
-
-#### HTTP
+## HTTP
 
 <details>
 <summary>What is HTTP?</summary><br><b>
@@ -13072,7 +13826,7 @@ Bonus: extract the last word of each line
 ## System Design
 
 <details>
-<summary>Explain what is a "Single point of failure" and give an example</summary><br><b>
+<summary>Explain what is a "Single point of failure"?</summary><br><b>
 </b></details>
 
 <details>
