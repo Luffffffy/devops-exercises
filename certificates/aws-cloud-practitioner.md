@@ -5,6 +5,12 @@ A summary of what you need to know for the exam can be found [here](https://codi
 #### Cloud 101
 
 <details>
+<summary>What is cloud computing?</summary><br><b>
+
+[Wikipedia](https://en.wikipedia.org/wiki/Cloud_computing): "Cloud computing is the on-demand availability of computer system resources, especially data storage (cloud storage) and computing power, without direct active management by the user"
+</b></details>
+
+<details>
 <summary>What types of Cloud Computing services are there?</summary><br><b>
 
 IAAS
@@ -44,6 +50,7 @@ SAAS
   * Availability zone
   * Region
   * Edge location</summary><br><b>
+
 AWS regions are data centers hosted across different geographical locations worldwide, each region is completely independent of one another.<br>
 
 Within each region, there are multiple isolated locations known as Availability Zones. Multiple availability zones ensure high availability in case one of them goes down.<br>
@@ -392,11 +399,21 @@ True
 </b></details>
 
 <details>
-<summary>Given an example of IAM best practices?</summary><br><b>
+<summary>True or False? When creating an AWS account, root account is created by default. This is the recommended account to use and share in your organization</summary><br><b>
 
-* Set up MFA
-* Delete root account access keys
-* Create IAM users instead of using root for daily management
+False. Instead of using the root account, you should be creating users and use them.
+</b></details>
+
+<details>
+<summary>True or False? Groups in AWS IAM, can contain only users and not other groups</summary><br><b>
+
+True
+</b></details>
+
+<details>
+<summary>True or False? Users in AWS IAM, can belong only to a single group</summary><br><b>
+
+False. Users can belong to multiple groups.
 </b></details>
 
 <details>
