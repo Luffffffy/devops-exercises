@@ -203,7 +203,7 @@ Read about it [here](https://owasp.org/www-project-top-ten)
 <details>
 <summary>What is XSS?</summary><br><b>
 
-Cross Site Scripting (XSS) is an type of a attack when the attacker inserts browser executable code within a HTTP response. Now the injected attack is not stored in the web application, it will only affact the users who open the maliciously crafted link or third-party web page. A successful attack allows the attacker to access any cookies, session tokens, or other sensitive information retained by the browser and used with that site 
+Cross Site Scripting (XSS) is an type of a attack when the attacker inserts browser executable code within a HTTP response. Now the injected attack is not stored in the web application, it will only affect the users who open the maliciously crafted link or third-party web page. A successful attack allows the attacker to access any cookies, session tokens, or other sensitive information retained by the browser and used with that site 
 
 You can test by detecting user-defined variables and how to input them. This includes hidden or non-obvious inputs such as HTTP parameters, POST data, hidden form field values, and predefined radio or selection values. You then analyze each found vector to see if their are potential vulnerabilities, then when found you craft input data with each input vector. Then you test the crafted input and see if it works.
 
@@ -214,7 +214,7 @@ You can test by detecting user-defined variables and how to input them. This inc
 
 SQL injection is an attack consists of inserts either a partial or full SQL query through data input from the browser to the web application. When a successful SQL injection happens it will allow the attacker to read sensitive information stored on the database for the web application. 
 
-You can test by using a stored procedure, so the application must be sanitize the user input to get rid of the tisk of code injection. If not then the user could enter bad SQL, that will then be executed within the procedure
+You can test by using a stored procedure, so the application must be sanitize the user input to get rid of the risk of code injection. If not then the user could enter bad SQL, that will then be executed within the procedure
 
 </b></details>
 
@@ -389,7 +389,29 @@ MAC address flooding attack (CAM table flooding attack) is a type of network att
 <summary>What is Cache Poisoned Denial of Service?</summary><br><b>
 
 CPDoS or Cache Poisoned Denial of Service. It poisons the CDN cache. By manipulating certain header requests, the attacker forces the origin server to return a Bad Request error which is stored in the CDN’s cache. Thus, every request that comes after the attack will get an error page.
+</b></details>
 
+<details>
+<summary>What is the difference if any between SSL and TLS?</summary><br><b>
+</b></details>
+
+<details>
+<summary>What is SNI (Server Name Indication)?</summary><br><b>
+
+[Wikipedia](https://en.wikipedia.org/wiki/Server_Name_Indication): "an extension to the Transport Layer Security (TLS) computer networking protocol by which a client indicates which hostname it is attempting to connect to at the start of the handshaking process"
+</b></details>
+
+<details>
+<summary>What benefits SNI introduces?</summary><br><b>
+
+SNI allows a single server to serve multiple certificates using the same IP and port.<br>
+Practically this means that a single IP can server multiple web services/pages, each using a different certificate.
+</b></details>
+
+<details>
+<summary>Explain "Web Cache Deception Attach"</summary><br><b>
+
+[This blog post](https://omergil.blogspot.com/2017/02/web-cache-deception-attack.html) explains it in detail.
 </b></details>
 
 #### Security - Threats
