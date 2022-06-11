@@ -1,10 +1,14 @@
-## Git
+# Git
+
+## Exercises
 
 |Name|Topic|Objective & Instructions|Solution|Comments|
 |--------|--------|------|----|----|
-| My first Commit | Commit | [Exercise](exercises/git/commit_01.md) | [Solution](exercises/git/solutions/commit_01_solution.md) | |
-| Time to Branch | Branch | [Exercise](exercises/git/branch_01.md) | [Solution](exercises/git/solutions/branch_01_solution.md) | |
-| Squashing Commits | Commit | [Exercise](exercises/git/squashing_commits.md) | [Solution](exercises/git/solutions/squashing_commits.md) | |
+| My first Commit | Commit | [Exercise](commit_01.md) | [Solution](solutions/commit_01_solution.md) | |
+| Time to Branch | Branch | [Exercise](branch_01.md) | [Solution](solutions/branch_01_solution.md) | |
+| Squashing Commits | Commit | [Exercise](squashing_commits.md) | [Solution](solutions/squashing_commits.md) | |
+
+## Questions
 
 <details>
 <summary>How do you know if a certain directory is a git repository?</summary><br><b>
@@ -41,7 +45,7 @@ a separate branch in your local repository
 
 There are different ways to check whether a file is tracked or not:
 
-  - `git ls-file <file>` -> exit code of 0 means it's tracked
+  - `git ls-files <file>` -> exit code of 0 means it's tracked
   - `git blame <file>`
   ...
 </b></details>
@@ -49,11 +53,31 @@ There are different ways to check whether a file is tracked or not:
 <details>
 <summary>How can you see which changes have done before committing them?</summary><br><b>
 
-`git diff```
+`git diff`
 </b></details>
 
 <details>
 <summary>What <code>git status</code> does?</summary><br><b>
+</b></details>
+
+### Branches
+
+<details>
+<summary>What's is the branch strategy (flow) you know?</summary><br><b>
+
+* Git flow
+* GitHub flow
+* Trunk based development
+* GitLab flow
+
+[Explanation](https://www.bmc.com/blogs/devops-branching-strategies/#:~:text=What%20is%20a%20branching%20strategy,used%20in%20the%20development%20process).
+
+</b></details>
+
+<details>
+<summary>True or False? A branch is basically a simple pointer or reference to the head of certain line of work</summary><br><b>
+
+True
 </b></details>
 
 <details>
@@ -67,10 +91,28 @@ git merge main
 ```
 </b></details>
 
-#### Git - Merge
+<details>
+<summary>Describe shortly what happens behind the scenes when you run <code>git branch <BRANCH></code></summary><br><b>
+
+Git runs update-ref to add the SHA-1 of the last commit of the branch you're on into the new branch you would like to create
+</b></details>
 
 <details>
-<summary>You have two branches - main and devel. How do you put devel into main?</summary><br><b>
+<summary>When you run <code>git branch <BRANCH></code> how does Git know the SHA-1 of the last commit?</summary><br><b>
+
+Using the HEAD file: `.git/HEAD`
+</b></details>
+
+<details>
+<summary>True or False? when you <code>git checkout some_branch</code>, Git updates .git/HEAD to <code>/refs/heads/some_branch</code></summary><br><b>
+
+True
+</b></details>
+
+### Merge
+
+<details>
+<summary>You have two branches - main and devel. How do you merge devel into main?</summary><br><b>
 
 git checkout main
 git merge devel
@@ -125,7 +167,7 @@ is currently pointing at.
 </p>
 </b></details>
 
-#### Git - Rebase
+### Rebase
 
 <details>
 <summary>You would like to move forth commit to the top. How would you achieve that?</summary><br><b>
@@ -135,6 +177,7 @@ Using the `git rebase` command
 
 <details>
 <summary>In what situations are you using <code>git rebase</code>?</summary><br><b>
+Suppose a team is working on a `feature` branch that is coming from the `main` branch of the repo. At a point, where the feature development is done, and finally we wish to merge the feature branch into the main branch without keeping the history of the commits made in the feature branch, a `git rebase` will be helpful. 
 </b></details>
 
 <details>
@@ -197,4 +240,12 @@ If you would like to also discard the changes you `git reset --hard``
 <summary>True or False? To remove a file from git but not from the filesystem, one should use <code>git rm </code></summary><br><b>
 
 False. If you would like to keep a file on your filesystem, use `git reset <file_name>`
+</b></details>
+
+## References
+
+<details>
+<summary>How to list the current git references in a given repository? </summary><br><b>
+
+`find .git/refs/`
 </b></details>

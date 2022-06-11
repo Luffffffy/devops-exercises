@@ -2,7 +2,7 @@
 
 :information_source: &nbsp;This repo contains questions and exercises on various technical topics, sometimes related to DevOps and SRE
 
-:bar_chart: &nbsp;There are currently **2138** exercises and questions
+:bar_chart: &nbsp;There are currently **2292** exercises and questions
 
 :books: &nbsp;To learn more about DevOps and SRE, check the resources in [devops-resources](https://github.com/bregman-arie/devops-resources) repository
 
@@ -20,60 +20,60 @@
 <center>
 <table>
   <tr>
-    <td align="center"><a href="exercises/devops/README.md"><img src="images/devops.png" width="70px;" height="75px;" alt="DevOps" /><br /><b>DevOps</b></a></td>
-    <td align="center"><a href="exercises/cicd/README.md"><img src="images/cicd.png" width="85px;" height="85px;" alt="cicd"/><br /><b>CI/CD</b></a></td>
-    <td align="center"><a href="exercises/git/README.md"><img src="images/git.png" width="80px;" height="75px;" alt="Git"/><br /><b>Git</b></a></td>
+    <td align="center"><a href="exercises/devops/README.md"><img src="images/devops.png" width="75px;" height="75px;" alt="DevOps" /><br /><b>DevOps</b></a></td>
+    <td align="center"><a href="exercises/cicd/README.md"><img src="images/cicd.png" width="75px;" height="75px;" alt="cicd"/><br /><b>CI/CD</b></a></td>
+    <td align="center"><a href="exercises/git/README.md"><img src="images/git.png" width="75px;" height="75px;" alt="Git"/><br /><b>Git</b></a></td>
     <td align="center"><a href="exercises/ansible/README.md"><img src="images/ansible.png" width="75px;" height="75px;" alt="ansible"/><br /><b>Ansible</b></a></td>
-    <td align="center"><a href="#Network"><img src="images/network.png" width="80x;" height="75px;" alt="Network"/><br /><b>Network</b></a></td>
-    <td align="center"><a href="#linux"><img src="images/linux.png" width="75x;" height="75px;" alt="Linux"/><br /><b>Linux</b></a></td>
+    <td align="center"><a href="#Network"><img src="images/network.png" width="75px;" height="75px;" alt="Network"/><br /><b>Network</b></a></td>
+    <td align="center"><a href="#linux"><img src="images/linux.png" width="75px;" height="75px;" alt="Linux"/><br /><b>Linux</b></a></td>
 
   </tr>
   <tr>
     <td align="center"><a href="exercises/software_development/README.md"><img src="images/programming.png" width="75px;" height="75px;" alt="programming"/><br /><b>Software Development</b></a></td>
-    <td align="center"><a href="#python"><img src="images/python.png" width="80px;" height="75px;" alt="Python"/><br /><b>Python</b></a></td>
+    <td align="center"><a href="https://github.com/bregman-arie/python-exercises"><img src="images/python.png" width="75px;" height="75px;" alt="Python"/><br /><b>Python</b></a></td>
     <td align="center"><a href="#go"><img src="images/Go.png" width="75px;" height="75px;" alt="go"/><br /><b>Go</b></a></td>
-    <td align="center"><a href="exercises/shell/README.md"><img src="images/bash.png" width="70px;" height="75px;" alt="Bash"/><br /><b>Shell Scripting</b></a></td>
-    <td align="center"><a href="#kubernetes"><img src="images/kubernetes.png" width="75px;" height="75px;" alt="kubernetes"/><br /><b>Kubernetes</b></a></td>
+    <td align="center"><a href="exercises/shell/README.md"><img src="images/bash.png" width="75px;" height="75px;" alt="Bash"/><br /><b>Shell Scripting</b></a></td>
+    <td align="center"><a href="exercises/kubernetes/README.md"><img src="images/kubernetes.png" width="75px;" height="75px;" alt="kubernetes"/><br /><b>Kubernetes</b></a></td>
     <td align="center"><a href="#prometheus"><img src="images/prometheus.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Prometheus</b></a></td>
   </tr>
   <tr>
-    <td align="center"><a href="exercises/cloud/README.md"><img src="images/cloud.png" width="110px;" height="75px;" alt="Cloud"/><br /><b>Cloud</b></a></td>
-    <td align="center"><a href="exercises/aws/README.md"><img src="images/aws.png" width="75px;" height="75px;" alt="aws"/><br /><b>AWS</b></a></td>
-    <td align="center"><a href="#azure"><img src="images/azure.png" width="75px;" height="75px;" alt="azure"/><br /><b>Azure</b></a></td>
-    <td align="center"><a href="#gcp"><img src="images/googlecloud.png" width="80px;" height="75px;" alt="Google Cloud Platform"/><br /><b>Google Cloud Platform</b></a></td>
+    <td align="center"><a href="exercises/cloud/README.md"><img src="images/cloud.png" width="75px;" height="75px;" alt="Cloud"/><br /><b>Cloud</b></a></td>
+    <td align="center"><a href="exercises/aws/README.md"><img src="images/aws.png" width="100px;" height="75px;" alt="aws"/><br /><b>AWS</b></a></td>
+    <td align="center"><a href="exercises/azure/README.md"><img src="images/azure.png" width="75px;" height="75px;" alt="azure"/><br /><b>Azure</b></a></td>
+    <td align="center"><a href="#gcp"><img src="images/googlecloud.png" width="70px;" height="70px;" alt="Google Cloud Platform"/><br /><b>Google Cloud Platform</b></a></td>
     <td align="center"><a href="#openstack"><img src="images/openstack.png" width="75px;" height="75px;" alt="openstack"/><br /><b>OpenStack</b></a></td>
     <td align="center"><a href="exercises/security/README.md"><img src="images/security.png" width="75px;" height="75px;" alt="security"/><br /><b>Security</b></a></td>
   </tr>
   <tr>
     <td align="center"><a href="#operating-system"><img src="images/os.png" width="75px;" height="75px;" alt="Operating System"/><br /><b>Operating System</b></a></td>
     <td align="center"><a href="#monitoring"><img src="images/monitoring.png" width="75px;" height="75px;" alt="Monitoring"/><br /><b>Monitoring</b></a></td>
-    <td align="center"><a href="#elastic"><img src="images/elastic.png" width="110px;" height="75px;" alt="Elastic"/><br /><b>Elastic</b></a></td>
+    <td align="center"><a href="#elastic"><img src="images/elastic.png" width="75px;" height="75px;" alt="Elastic"/><br /><b>Elastic</b></a></td>
     <td align="center"><a href="#virtualization"><img src="images/virtualization.png" width="75px;" height="75px;" alt="Virtualization"/><br /><b>Virtualization</b></a></td>
     <td align="center"><a href="exercises/dns/README.md"><img src="images/dns.png" width="75px;" height="75px;" alt="DNS"/><br /><b>DNS</b></a></td>
-    <td align="center"><a href="#Misc"><img src="images/general.png" width="110px;" height="75px;" alt="Misc"/><br /><b>Misc</b></a></td>
+    <td align="center"><a href="#Misc"><img src="images/general.png" width="75px;" height="75px;" alt="Misc"/><br /><b>Misc</b></a></td>
   </tr>
   <tr>
     <td align="center"><a href="#testing"><img src="images/testing.png" width="75px;" height="75px;" alt="Testing"/><br /><b>Testing</b></a></td>
     <td align="center"><a href="#databases"><img src="images/databases.png" width="75px;" height="75px;" alt="Databases"/><br /><b>Databases</b></a></td>
-    <td align="center"><a href="#regex"><img src="images/regex.png" width="75ph;" height="75px;" alt="RegEx"/><br /><b>Regex</b></a></td>
-    <td align="center"><a href="#system-design"><img src="images/design.png" width="110px;" height="75px;" alt="Design"/><br /><b>System Design</b></a></td>
-    <td align="center"><a href="#hardware"><img src="images/hardware.png" width="110px;" height="75px;" alt="Hardware"/><br /><b>Hardware</b></a></td>
-    <td align="center"><a href="#big-data"><img src="images/big-data.png" width="110px;" height="75px;" alt="Big Data"/><br /><b>Big Data</b></a></td>
+    <td align="center"><a href="#regex"><img src="images/regex.png" width="75px;" height="75px;" alt="RegEx"/><br /><b>Regex</b></a></td>
+    <td align="center"><a href="#system-design"><img src="images/design.png" width="75px;" height="75px;" alt="Design"/><br /><b>System Design</b></a></td>
+    <td align="center"><a href="#hardware"><img src="images/hardware.png" width="75px;" height="75px;" alt="Hardware"/><br /><b>Hardware</b></a></td>
+    <td align="center"><a href="#big-data"><img src="images/big-data.png" width="75px;" height="75px;" alt="Big Data"/><br /><b>Big Data</b></a></td>
   </tr>
   <tr>
     <td align="center"><a href="#certificates"><img src="images/certificates.png" width="75px;" height="75px;" alt="Certificates"/><br /><b>Certificates</b></a></td>
-    <td align="center"><a href="#containers"><img src="images/containers.png" width="70px;" height="75px;" alt="Containers"/><br /><b>Containers</b></a></td>
+    <td align="center"><a href="exercises/containers/README.md"><img src="images/containers.png" width="75px;" height="75px;" alt="Containers"/><br /><b>Containers</b></a></td>
     <td align="center"><a href="#sql"><img src="images/sql.png" width="75px;" height="75px;" alt="sql"/><br /><b>SQL</b></a></td>
     <td align="center"><a href="exercises/openshift/README.md"><img src="images/openshift.png" width="75px;" height="75px;" alt="OpenShift"/><br /><b>OpenShift</b></a></td>
     <td align="center"><a href="#storage"><img src="images/storage.png" width="75px;" height="75px;" alt="Storage"/><br /><b>Storage</b></a></td>
-    <td align="center"><a href="exercises/soft_skills/README.md"><img src="images/HR.png" width="110px;" height="75px;" alt="HR"/><br /><b>Soft Skills</b></a></td>
+    <td align="center"><a href="exercises/soft_skills/README.md"><img src="images/HR.png" width="75px;" height="75px;" alt="HR"/><br /><b>Soft Skills</b></a></td>
   </tr>
   <tr>
-      <td align="center"><a href="exercises/terraform/README.md"><img src="images/terraform.png" width="70px;" height="75px;" alt="Terraform"/><br /><b>Terraform</b></a></td>
+      <td align="center"><a href="exercises/terraform/README.md"><img src="images/terraform.png" width="75px;" height="75px;" alt="Terraform"/><br /><b>Terraform</b></a></td>
       <td align="center"><a href="#mongo"><img src="images/mongo.png" width="75px;" height="75px;" alt="Mongo"/><br /><b>Mongo</b></a></td>
       <td align="center"><a href="#puppet"><img src="images/puppet.png" width="75px;" height="75px;" alt="puppet"/><br /><b>Puppet</b></a></td>
-      <td align="center"><a href="#distributed"><img src="images/distributed.png" width="110px;" height="75px;" alt="Distributed"/><br /><b>Distributed</b></a></td>
-      <td align="center"><a href="#questions-you-ask"><img src="images/you.png" width="90px;" height="75px;" alt="you"/><br /><b>Questions you can ask</b></a></td>
+      <td align="center"><a href="#distributed"><img src="images/distributed.png" width="75px;" height="75px;" alt="Distributed"/><br /><b>Distributed</b></a></td>
+      <td align="center"><a href="#questions-you-ask"><img src="images/you.png" width="75px;" height="75px;" alt="you"/><br /><b>Questions you can ask</b></a></td>
       <td align="center"><a href="exercises/perl/README.md"><img src="images/perl.png" width="75px;" height="75px;" alt="perl"/><br /><b>Perl</b></a></td>
   </tr>
 </table>
@@ -97,6 +97,17 @@
 
 A set of protocols that define how two or more devices can communicate with each other.
 To learn more about TCP/IP, read [here](http://www.penguintutor.com/linux/basic-network-reference)
+</b></details>
+
+<details>
+<summary>What is APIPA?</summary><br><b>
+APIPA is a set of it addresses that devices are allocated
+when the main DHCP server is not reachable
+</b></details>
+
+<details>
+<summary>What ip range does APIPA use?</summary><br><b>
+APIPA uses the ip range: 169.254.0.1 - 169.254.255.254.
 </b></details>
 
 <details>
@@ -154,10 +165,12 @@ A Subnet mask is a 32-bit number that masks an IP address, and divides the IP ad
 
 <details>
 <summary>What is a private IP address? In which scenarios/system designs, one should use it?</summary><br><b>
+Private IP addresses are assigned to the hosts in the same network to communicate among one another. As the name "private" suggests, the devices having the priate IP addresses assigned can't be reached by the devices from any external network. For example, if I am living in a hostel and I want my hostelmates to join the game server I have hosted, I will ask them to join via my server's private IP address, since the network is local to the hostel.
 </b></details>
 
 <details>
 <summary>What is a public IP address? In which scenarios/system designs, one should use it?</summary><br><b>
+A public IP address is the public facing IP address. In the event that you was hosting a game server that you want your friends to join, you will give your friends your public IP address to allow their computers to identify and locate your network and server in order for the connection to take place. One time that you would not need to use a public facing IP address is in the event that you was playing with friends who was connected to the same network as you, in that case, you would use a private ip address. In order for someone to be able to connect to your server that is located internally, you will have to setup a port forward to tell your router to allow traffic from the public domain into your network and vice versa.
 </b></details>
 
 <details>
@@ -184,7 +197,7 @@ You can read more about the OSI model in [penguintutor.com](http://www.penguintu
   * IP address
   * Terminate connections
   * 3 way handshake</summary><br><b>
-  * Error correction
+  * Error correction - Data link
   * Packets routing - Network
   * Cables and electrical signals - Physical
   * MAC address - Data link
@@ -451,14 +464,20 @@ Control Plane.
 
 <details>
 <summary>What is latency?</summary><br><b>
+	
+Latency is the time taken for an information to reach its destination from the source.
 </b></details>
 
 <details>
 <summary>What is bandwidth?</summary><br><b>
+	
+Bandwidth is the capacity of a communication channel to measure how much data the latter can handle over a specific time period. More bandwidth would imply more traffic handling and thus more data transfer.
 </b></details>
 
 <details>
 <summary>What is throughput?</summary><br><b>
+	
+Throughput refers to the measurement of the real amount of data transferred over a certain period of time across any transmission channel.
 </b></details>
 
 <details>
@@ -922,6 +941,8 @@ True
 
 <details>
 <summary>A user accidentally executed the following <code>chmod -x $(which chmod)</code>. How to fix it?</summary><br><b>
+
+Using `sudo setfacl -m u::rx /usr/bin/chmod` will set the execute permissions on `chmod` for all the users. Post this, the `chmod` binary can be used as usual.
 </b></details>
 
 #### Linux - systemd
@@ -1148,6 +1169,8 @@ Telnet also allows you to connect to a remote host but as opposed to SSH where t
 
 <details>
 <summary>What is stored in <code>~/.ssh/known_hosts</code>?</summary><br><b>
+
+The file stores the key fingerprints for the clients connecting to the SSH server. This fingerprint creates a trust between the client and the server for future SSH connections.
 </b></details>
 
 <details>
@@ -1162,6 +1185,62 @@ It means that the key of the remote host was changed and doesn't match the one t
 
 <details>
 <summary>What <code>ssh-keygen</code> is used for?</summary><br><b>
+
+<code>ssh-keygen</code> is a tool to generate an authentication key pair for SSH, that consists of a private and a public key. It supports a number of algorithms to generate authentication keys : 
+- dsa
+- ecdsa
+- ecdsa-sk
+- ed25519
+- ed25519-sk
+- rsa (default)
+
+One can also specify number of bits in key. Command below generates an SSH key pair with RSA 4096-bits :
+```
+$ ssh-keygen -t rsa -b 4096
+```
+
+The output looks like this:
+```
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/user/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/user/.ssh/id_rsa
+Your public key has been saved in /home/user/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:f5MOGnhzYfC0ZCHvbSXXiRiNVYETjxpHcXD5xSojx+M user@mac-book-pro
+The key's randomart image is:
++---[RSA 4096]----+
+|        . ..+***o|
+|         o o++*o+|
+|        . =+.++++|
+|         B.oX+. .|
+|        S *=o+   |
+|       . o oE.   |
+|      . + + +    |
+|       . = + .   |
+|        .   .    |
++----[SHA256]-----+
+```
+
+One can check how many bits an SSH key has with :
+```
+$ ssh-keygen -l -f /home/user/.ssh/id_rsa
+```
+
+Output should look like this :
+```
+4096 SHA256:f5MOGnhzYfC0ZCHvbSXXiRiNVYETjxpHcXD5xSojx+M user@mac-book-pro (RSA)
+```
+It shows the key is RSA 4096-bits.
+
+`-l` and `-f` parameters usage explanation :
+```
+-l          Show the fingerprint of the key file.
+-f filename Filename of the key file.
+```
+
+Learn more : [How can I tell how many bits my ssh key is? - Superuser](https://superuser.com/a/139311)
 </b></details>
 
 <details>
@@ -2772,263 +2851,6 @@ Yes, it's a operating-system-level virtualization, where the kernel is shared an
 The introduction of virtual machines allowed companies to deploy multiple business applications on the same hardware while each application is separated from each other in secured way, where each is running on its own separate operating system.
 </b></details>
 
-## Python
-
-### Python Exercises
-
-|Name|Topic|Objective & Instructions|Solution|Comments|
-|--------|--------|------|----|----|
-| Identify the data type | Data Types | [Exercise](exercises/python/data_types.md) | [Solution](exercises/python/solutions/data_types_solution.md)
-| Identify the data type - Advanced | Data Types | [Exercise](exercises/python/advanced_data_types.md) | [Solution](exercises/python/solutions/advanced_data_types_solution.md)
-| Reverse String | Strings | [Exercise](exercises/python/reverse_string.md) | [Solution](exercises/python/solutions/reverse_string.md)
-| Compress String | Strings | [Exercise](exercises/python/compress_string.md) | [Solution](exercises/python/solutions/compress_string.md)
-
-### Python Self Assessment
-
-<details>
-<summary>What are some characteristics of the Python programming language?</summary><br><b>
-
-```
-1. It is a high level general purpose programming language created in 1991 by Guido Van Rosum.
-2. The language is interpreted, being the CPython (Written in C) the most used/maintained implementation.
-3. It is strongly typed. The typing discipline is duck typing and gradual.
-4. Python focuses on readability and makes use of whitespaces/identation instead of brackets { }
-5. The python package manager is called PIP "pip installs packages", having more than 200.000 available packages.
-6. Python comes with pip installed and a big standard library that offers the programmer many precooked solutions.
-7. In python **Everything** is an object.
-```
-</b></details>
-
-<details>
-<summary>What built-in types Python has?</summary><br><b>
-
-    List
-    Dictionary
-    Set
-    Numbers (int, float, ...)
-    String
-    Bool
-    Tuple
-    Frozenset
-</b></details>
-
-<details>
-<summary>What is mutability? Which of the built-in types in Python are mutable?</summary><br><b>
-
-Mutability determines whether you can modify an object of specific type.
-
-The mutable data types are:
-
-    List
-    Dictionary
-    Set
-
-The immutable data types are:
-
-    Numbers (int, float, ...)
-    String
-    Bool
-    Tuple
-    Frozenset
-</b></details>
-
-#### Python - Booleans
-
-<details>
-<summary>What is the result of each of the following?
-
-  - 1 > 2
-  - 'b' > 'a'
-  * 1 == 'one'
-  - 2 > 'one'</summary><br><b>
-
-  * False
-  * True
-  * False
-  * TypeError
-</b></details>
-
-<details>
-<summary>What is the result of `bool("")`? What about `bool(" ")`? Explain</summary><br><b>
-
-bool("") -> evaluates to False<br>
-bool("  ") -> evaluates to True
-</b></details>
-
-<details>
-<summary>What is the result of running <code>[] is not []</code>? explain the result</summary><br><b>
-
-It evaluates to True.<br>
-The reason is that the two created empty list are different objects. `x is y` only evaluates to true when x and y are the same object.
-</b></details>
-
-<details>
-<summary>What is the result of running <code>True-True</code>?</summary><br><b>
-
-0
-</b></details>
-
-#### Python - Strings
-
-<details>
-<summary>True or False? String is an immutable data type in Python</summary><br><b>
-
-True
-</b></details>
-
-<details>
-<summary>How to check if a string starts with a letter?</summary><br><b>
-
-Regex:
-
-```
-import re
-if re.match("^[a-zA-Z]+.*", string):
-```
-
-string built-in:
-
-```
-if string and string[0].isalpha():
-```
-</b></details>
-
-<details>
-<summary>How to check if all characters in a given string are digits?</summary><br><b>
-
-`string.isdigit`
-</b></details>
-
-<details>
-<summary>How to remove trailing slash ('/') from a string?</summary><br><b>
-
-`string.rstrip('/')`
-</b></details>
-
-<details>
-<summary>What is the result of of each of the following?
-
-  - "abc"*3
-  - "abc"*2.5
-  - "abc"*2.0
-  - "abc"*True
-  - "abc"*False</summary><br><b>
-
-* abcabcabc
-* TypeError
-* TypeError
-* "abc"
-* ""
-</b></details>
-
-<details>
-<summary>Improve the following code:
-
-```
-char = input("Insert a character: ")
-if char == "a" or char == "o" or char == "e" or char =="u" or char == "i":
-    print("It's a vowel!")
-```
-</summary><br><b>
-
-```
-char = input("Insert a character: ") # For readablity
-if lower(char[0]) in "aieou": # Takes care of multiple characters and separate cases
-    print("It's a vowel!")
-```
-OR
-```
-if lower(input("Insert a character: ")[0]) in "aieou": # Takes care of multiple characters and small/Capital cases
-    print("It's a vowel!")
-```
-</b></details>
-
-#### Python - Functions
-
-<details>
-<summary>How to define a function with Python?</summary><br><b>
-Using the `def` keyword. For Examples:
-
-```
-def sum(a, b):
-    return (a + b)
-```
-</b></details>
-
-<details>
-<summary>In Python, functions are first-class objects. What does it mean?</summary><br><b>
-
-In general, first class objects in programming languages are objects which can be assigned to variable, used as a return value and can be used as arguments or parameters.<br>
-In python you can treat functions this way. Let's say we have the following function
-
-```
-def my_function():
-    return 5
-```
-
-You can then assign a function to a variables like this `x = my_function` or you can return functions as return values like this `return my_function`
-</b></details>
-
-#### Python - Integer
-
-<details>
-<summary>Write a function to determine if a number is a Palindrome</summary><br><b>
-
-- Code:
-
-```
-from typing import Union
-
-def isNumberPalindrome(number: Union[int, str]) -> bool:
-    if isinstance(number, int):
-        number = str(number)
-    return number == number[::-1]
-
-print(isNumberPalindrome("12321"))
-```
-
-- Using Python3.10 that accepts using bitwise operator '|'. 
-
-```
-def isNumberPalindrome(number: int | str) -> bool:
-    if isinstance(number, int):
-        number = str(number)
-    return number == number[::-1]
-
-print(isNumberPalindrome("12321"))
-```
-
-Note: Using slicing to reverse a list could be slower than other options like `reversed` that return an iterator.
-
-- Result:
-
-```
-True
-```
-
-</b></details>
-
-#### Python - Loops
-
-<details>
-<summary>What is the result of the following block of code?
-
-```
-x = ['a', 'b', 'c']
-for i in x:
-    if i == 'b':
-        x = ['z', 'y']
-    print(i)
-```
-</summary><br><b>
-
-```
-a
-b
-c
-```
-</b></details>
-
 #### Python - OOP
 
 <details>
@@ -3390,12 +3212,6 @@ List, as opposed to a tuple, is a mutable data type. It means we can modify it a
 </b></details>
 
 <details>
-<summary>How to check how many items a list contains?</summary><br><b>
-
-`len(sone_list)`
-</b></details>
-
-<details>
 <summary>How to get the last element of a list?</summary><br><b>
 
 `some_list[-1]`
@@ -3413,30 +3229,6 @@ Don't use `append` unless you would like the list as one item.
 <summary>How to remove the first 3 items from a list?</summary><br><b>
 
 `my_list[0:3] = []`
-</b></details>
-
-<details>
-<summary>How do you get the maximum and minimum values from a list?</summary><br><b>
-
-```
-Maximum: max(some_list)
-Minimum: min(some_list)
-```
-</b></details>
-
-<details>
-<summary>How to get the top/biggest 3 items from a list?</summary><br><b>
-
-```
-sorted(some_list, reverse=True)[:3]
-```
-
-Or
-
-```
-some_list.sort(reverse=True)
-some_list[:3]
-```
 </b></details>
 
 <details>
@@ -3793,14 +3585,6 @@ with open('file.txt', 'w') as file:
 </b></details>
 
 <details>
-<summary>How to print the 12th line of a file?</summary><br><b>
-</b></details>
-
-<details>
-<summary>How to reverse a file?</summary><br><b>
-</b></details>
-
-<details>
 <summary>Sum all the integers in a given file</summary><br><b>
 </b></details>
 
@@ -3898,10 +3682,6 @@ Using the re module
 </b></details>
 
 <details>
-<summary>How to substitute the string "green" with "blue"?</summary><br><b>
-</b></details>
-
-<details>
 <summary>How to find all the IP addresses in a variable? How to find them in a file?</summary><br><b>
 </b></details>
 
@@ -3974,6 +3754,15 @@ Detailed answer can be found here: http://codingshell.com/python-all-string-perm
 
 <details>
 <summary>Count the number of spaces in a string</summary><br><b>
+
+You can use the "count" method like this:
+
+```python
+
+ImAString.count(" ")
+
+```
+
 </b></details>
 
 <details>
@@ -5317,172 +5106,6 @@ WHERE
 When you use a function (`YEAR(purchased_at)`) it has to scan the whole database as opposed to using indexes and basically the column as it is, in its natural state.
 </b></details>
 
-## Azure
-
-<details>
-<summary>What is Azure Portal?</summary><br><b>
-
-[Microsoft Docs](https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-fundamentals/what-is-microsoft-azure): "The Azure portal is a web-based, unified console that provides an alternative to command-line tools. With the Azure portal, you can manage your Azure subscription by using a graphical user interface."
-</b></details>
-
-<details>
-<summary>What is Azure Marketplace?</summary><br><b>
-
-[Microsoft Docs](https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-fundamentals/what-is-microsoft-azure): "Azure marketplace helps connect users with Microsoft partners, independent software vendors, and startups that are offering their solutions and services, which are optimized to run on Azure."
-</b></details>
-
-<details>
-<summary>Explain availability sets and availability zones</summary><br><b>
-
-An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide redundancy and availability. It is recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the 99.95% Azure SLA.
-</b></details>
-
-<details>
-<summary>What is Azure Policy?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is the Azure Resource Manager? Can you describe the format for ARM templates?</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain Azure managed disks</summary><br><b>
-</b></details>
-
-#### Azure - Compute
-
-<details>
-<summary>What Azure compute services are you familiar with?</summary><br><b>
-
-  * Azure Virtual Machines
-  * Azure Batch
-  * Azure Service Fabric
-  * Azure Container Instances
-  * Azure Virtual Machine Scale Set?s
-</b></details>
-
-<details>
-<summary>What "Azure Virtual Machines" service is used for?</summary><br><b>
-
-Windows or Linux virtual machines
-</b></details>
-
-<details>
-<summary>What "Azure Virtual Machine Scale Sets" service is used for?</summary><br><b>
-
-Scaling Linux or Windows virtual machines used in Azure
-</b></details>
-
-<details>
-<summary>What "Azure Functions" service is used for?</summary><br><b>
-
-Azure Functions is the serverless compute service of Azure.
-</b></details>
-
-<details>
-<summary>What "Azure Container Instances" service is used for?</summary><br><b>
-
-Running containerized applications (without the need to provision virtual machines).
-</b></details>
-
-<details>
-<summary>What "Azure Batch" service is used for?</summary><br><b>
-
-Running parallel and high-performance computing applications
-</b></details>
-
-<details>
-<summary>What "Azure Service Fabric" service is used for?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What "Azure Kubernetes" service is used for?</summary><br><b>
-</b></details>
-
-#### Azure - Network
-
-<details>
-<summary>What Azure network services are you familiar with?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What's an Azure region?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is the N-tier architecture?</summary><br><b>
-</b></details>
-
-#### Azure Storage
-
-<details>
-<summary>What Azure storage services are you familiar with?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What storage options Azure supports?</summary><br><b>
-</b></details>
-
-#### Azure Security
-
-<details>
-<summary>What is the Azure Security Center? What are some of its features?</summary><br><b>
-
-It's a monitoring service that provides threat protection across all of the services in Azure.
-More specifically, it:
-
-* Provides security recommendations based on your usage
-* Monitors security settings and continuously all the services
-* Analyzes and identifies potential inbound attacks
-* Detects and blocks malware using machine learning
-</b></details>
-
-<details>
-<summary>What is Azure Active Directory?</summary><br><b>
-
-Azure AD is a cloud-based identity service. You can use it as a standalone service or integrate it with existing Active Directory service you already running.
-</b></details>
-
-<details>
-<summary>What is Azure Advanced Threat Protection?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What components are part of Azure ATP?</summary><br><b>
-</b></details>
-
-<details>
-<summary>Where logs are stored in Azure Monitor?</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain Azure Site Recovery</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain what the advisor does</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain VNet peering</summary><br><b>
-</b></details>
-
-<details>
-<summary>Which protocols are available for configuring health probe</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain Azure Active</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is a subscription? What types of subscriptions are there?</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain what is a blob storage service</summary><br><b>
-</b></details>
-
 ## GCP
 
 <details>
@@ -5491,6 +5114,47 @@ Azure AD is a cloud-based identity service. You can use it as a standalone servi
 
 <details>
 <summary>What are the main components and services of GCP?</summary><br><b>
+
+| Components | Services          |
+| ---------- | ----------------- |
+| Compute    | Compute Engine    |
+|            | App Engine        |
+|            | Kubernetes Engine |
+|            | Cloud Function    |
+|            | Cloud Run         | 
+| Storage &  | Cloud Storage     |
+| Database   | Cloud SQL         |
+|            | Cloud BigTable    |
+|            | Cloud Spanner     |
+|            | Cloud Datastore   |
+| Networking | VPC               |
+|            | Load Balancing    |
+|            | Cloud Armor       |
+|            | Cloud CDN         |
+|            | Cloud DNS         |
+|            | Cloud Interconnect|
+| Big Data   | Big Query         |
+|            | Cloud Dataproc    |
+|            | Cloud Datalab     |
+|            | Data Studio       |
+| DevOps     | Container Registry|
+|            | Cloud Build       |
+|            | Source Repository |
+| Identity & | Cloud Identity    |
+| Security   | Cloud IAM         |
+|            | Cloud KMS         |
+| Cloud AI   | Cloud AutoML      |
+|            | Cloud Vision API  |
+|            | Natural Language  |
+|            | Cloud Speech-to-Text|
+|            | Cloud Text-to-Speech|
+|            | Cloud Translation API|
+|            | Cloud Video Intelligence|
+| API Platform | Maps Platform    |
+|            | API Analytics  |
+|            | Apigee Sense   |
+|            | Cloud Endpoints|
+
 </b></details>
 
 <details>
@@ -5499,28 +5163,71 @@ Azure AD is a cloud-based identity service. You can use it as a standalone servi
 
 <details>
 <summary>Tell me what do you know about GCP networking</summary><br><b>
+
+Virtual Private Cloud(VPC) network is a virtual version of physical network, implemented in Google's internal Network. VPC is a gloabal resource in GCP.
+Subnetworks(subnets) are regional resources, ie., subnets can be created withinin regions.
+
+VPC are created in 2 modes,
+
+1. Auto mode VPC - One subnet in each region is created automatically by GCP while creating VPC
+
+2. Custom mode VPC - No subnets are automatically created. This type of network provides complete control over the subnets creation to the users. 
+
+
 </b></details>
 
 <details>
 <summary>Explain Cloud Functions</summary><br><b>
+
+Google Cloud Functions is a serverless execution environment for building and connecting cloud services. With Cloud Functions you write simple, single-purpose functions that are attached to events emitted from your cloud infrastructure and services. Your function is triggered when an event being watched is fired.
+
 </b></details>
 
 <details>
 <summary>What is Cloud Datastore?</summary><br><b>
+
+Cloud Datastore is a schemaless NoSQL datastore in Google's cloud. Applications can use Datastore to query your data with SQL-like queries that support filtering and sorting. Datastore replicates data across multiple datacenters, which provides a high level of read/write availability.
+
 </b></details>
 
 <details>
 <summary>What network tags are used for?</summary><br><b>
+
+Network tags allow you to apply firewall rules and routes to a specific instance or set of instances: You make a firewall rule applicable to specific instances by using target tags and source tags.
+
 </b></details>
 
 <details>
 <summary>What are flow logs? Where are they enabled?</summary><br><b>
+
+VPC Flow Logs records a sample of network flows sent from and received by VM instances, including instances used as Google Kubernetes Engine nodes. These logs can be used for network monitoring, forensics, real-time security analysis, and expense optimization.
+
+Enable Flow Logs
+
+1. Open VPC Network in GCP Console
+
+2. Click the name of the subnet 
+
+3. Click EDIT button
+
+4. Set Flow Logs to On
+
+5. Click Save
+
+
+
 </b></details>
 
 <details>
 <summary>How do you list buckets?</summary><br><b>
+    Two ways to do that:
+	 
+   $ gsutil ls
+	 
+   $ gcloud alpha storage ls
+	
 </b></details>
-
+ 
 <details>
 <summary>What Compute metadata key allows you to run code at startup?</summary><br><b>
 
@@ -5529,6 +5236,9 @@ startap-script
 
 <details>
 <summary>What the following commands does? `gcloud deployment-manager deployments create`</summary><br><b>
+
+Deployment Manager creates a new deployment. 
+
 </b></details>
 
 <details>
