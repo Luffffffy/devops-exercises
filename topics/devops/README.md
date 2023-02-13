@@ -1,4 +1,8 @@
-## DevOps
+# DevOps
+
+## Questions
+
+### General 
 
 <details>
 <summary>What is DevOps?</summary><br><b>
@@ -69,7 +73,7 @@ A couple of thoughts:
 3. You might want to set a possibly better goal such as "be able to deploy whenever we need to deploy"
 </b></details>
 
-#### Tooling
+### Tooling
 
 <details>
 <summary>What do you take into consideration when choosing a tool/technology?</summary><br><b>
@@ -120,7 +124,7 @@ Things to think about:
 * What does the switch from one platform to another will require from the organization? For example, training users who use the platform? How much time the team has to invest in such move?
 </b></details>
 
-#### Version Control
+### Version Control
 
 <details>
 <summary>What is Version Control?</summary><br><b>
@@ -179,7 +183,7 @@ to a server will result in a new server instead of updating it. Terraform is an 
 which follows the immutable infrastructure paradigm.
 </b></details>
 
-#### Software Distribution
+### Software Distribution
 
 <details>
 <summary>Explain "Software Distribution"</summary><br><b>
@@ -389,11 +393,11 @@ This situation might lead to bugs which hard to identify and reproduce.
 <details>
 <summary>Explain Declarative and Procedural styles. The technologies you are familiar with (or using) are using procedural or declarative style?</summary><br><b>
 
-Declarative - You write code that specifies the desired end state
+Declarative - You write code that specifies the desired end state<br>
 Procedural - You describe the steps to get to the desired end state
 
-Declarative Tools - Terraform, Puppet, CloudFormation
-Procedural Tools - Ansible, Chef
+Declarative Tools - Terraform, Puppet, CloudFormation, Ansible<br>
+Procedural Tools - Chef
 
 To better emphasize the difference, consider creating two virtual instances/servers.
 In declarative style, you would specify two servers and the tool will figure out how to reach that state.
@@ -414,12 +418,44 @@ Note: cross-dependency is when you have two or more changes to separate projects
 <summary>What is Distributed Tracing?</summary><br><b>
 </b></details>
 
+### GitOps
+
 <details>
 <summary>What is GitOps?</summary><br><b>
 
 GitLab: "GitOps is an operational framework that takes DevOps best practices used for application development such as version control, collaboration, compliance, and CI/CD tooling, and applies them to infrastructure automation".
 
 Read more [here](https://about.gitlab.com/topics/gitops)
+</b></details>
+
+<details>
+<summary>What are some of the advantages of applying GitOps?</summary><br><b>
+
+* It introduces limited/granular access to infrastructure
+* It makes it easier to trace who makes changes to infrastructure
+
+</b></details>
+
+<details>
+<summary>When a repository refereed to as "GitOps Repository" what does it means?</summary><br><b>
+
+A repository that doesn't holds the application source code, but the configuration, infra, ... files that required to test and deploy the application.
+</b></details>
+
+<details>
+<summary>What are some practical implementations or practices of GitOp?</summary><br><b>
+
+* Store Infra files in a version control repository (like Git)
+* Apply review/approval process for changes
+</b></details>
+
+<details>
+<summary>Two engineers in your team argue on where to put the configuration and infra related files of a certain application. One of them suggests to put it in the same repo as the application repository and the other one suggests to put to put it in its own separate repository. What's your take on that?</summary><br><b>
+
+One might say we need more details as to what these configuration and infra files look like exactly and how complex the application and its CI/CD pipeline(s), but in general, most of the time you will want to put configuration and infra related files in their own separate repository and not in the repository of the application for multiple reasons:
+
+* Every change submitted to the configuration, shouldn't trigger the CI/CD of the application, it should be testing out and applying the modified configuration, not the application itself
+* When you mix application code with conifguration and infra related files
 </b></details>
 
 #### SRE
@@ -470,3 +506,31 @@ Google: "Monitoring is one of the primary means by which service owners keep tra
 
 Read more about it [here](https://sre.google/sre-book/introduction)
 </b></details>
+
+<details>
+<summary>What are the two main SRE KPIs</summary><br><b>
+
+Service Level Indicators (SLI) and Service Level Objectives (SLO).
+</b></details>
+
+<details>
+<summary>What is Toil?</summary><br><b>
+
+Google: Toil is the kind of work tied to running a production service that tends to be manual, repetitive, automatable, tactical, devoid of enduring value, and that scales linearly as a service grows
+
+Read more about it [here](https://sre.google/sre-book/eliminating-toil/) 
+</b></details>
+
+
+<details>
+<summary>What is a postmortem ? </summary><br><b>
+
+The postmortem is a process that should take place folowing an incident. It’s purpose is to identify the root cause of an incident and the actions that should be taken to avoid this kind of incidents from hapenning again. </b></details>
+
+
+<details>
+<summary>What is the core value often put forward when talking about postmortem?</summary><br><b>
+
+Blamelessness. 
+Postmortems need to be blameless and this value should be remided at the begining of every postmortem. This is the best way to ensure that people are playing the game to find the root cause and not trying to hide their possible faults.</b></details>
+
